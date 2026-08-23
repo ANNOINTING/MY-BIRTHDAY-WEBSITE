@@ -144,7 +144,7 @@ document.addEventListener('click', (e) => {
 
 /* ---------- FADE IN ON SCROLL ---------- */
 function checkFadeIn() {
-    document.querySelectorAll('.fade-in').forEach(el => {
+    document.querySelectorAll('.fade-in, .timeline-item').forEach(el => {
         const rect = el.getBoundingClientRect();
         if (rect.top < window.innerHeight * 0.9) el.classList.add('visible');
     });
