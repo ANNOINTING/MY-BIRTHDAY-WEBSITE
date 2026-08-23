@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Celebrate Robert Mensah's birthday — leave a wish, send a gift, play a game.">
+    <meta name="theme-color" content="#0a0e27">
+    <title>Celebrate — Robert Mensah</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎉</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://twemoji.maxcdn.com/v/13.1.0/twemoji.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#wishes">Skip to content</a>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<div class="bg-container">
+    <div class="bg-gradient"></div>
+    <div class="bg-stars"></div>
+    <div class="bg-stars-gold"></div>
+    <div class="bg-aurora"></div>
+    <div class="bg-aurora-gold"></div>
+</div>
+<div class="fx-container" id="fxContainer"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <a href="index.html" class="nav-brand">
+        <span class="nav-monogram">RM</span>
+        <span class="nav-title">Robert <span>Mensah</span></span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="story.html">Story</a></li>
+        <li><a href="memories.html">Memories</a></li>
+        <li><a href="celebrate.html" class="active">Celebrate</a></li>
+        <li><a href="#wishes" class="nav-cta">Leave a Wish 💌</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <div class="menu-divider"></div>
+    <a href="story.html">Story</a>
+    <div class="menu-divider"></div>
+    <a href="memories.html">Memories</a>
+    <div class="menu-divider"></div>
+    <a href="celebrate.html" class="active">Celebrate</a>
+</div>
+
+<main>
+    <!-- ===== BIRTHDAY BANNER ===== -->
+    <div class="birthday-banner" id="birthdayBanner">
+        <h3>🎉 It's Robert's Birthday Today! 🎉</h3>
+        <p>Join the celebration — leave a wish, play a game, and light up the sky!</p>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="page-hero">
+
+
+        <div class="page-hero-bg">
+            <img src="my picture at home.jpeg" alt="Robert at home" width="1920" height="1080">
+        </div>
+        <h1>LET'S <span class="gold">CELEBRATE</span></h1>
+        <p>Leave a wish, send a gift, play a game — be part of the day.</p>
+    </section>
+
+    <!-- ===== WISHES ===== -->
+    <section class="fade-in" id="wishes">
+        <div class="section-label">Birthday Wishes</div>
+        <h2 class="section-title">Leave a Wish</h2>
+        <div class="section-divider"></div>
+        <div class="wishes-container">
+            <div class="wish-form">
+                <h3>💌 Send Robert a Birthday Wish</h3>
+                <div class="form-group">
+                    <input type="text" class="form-input" id="wishName" placeholder="Your name (optional — leave blank to stay anonymous)" maxlength="40" aria-label="Your name">
+                </div>
+                <div class="form-group">
+                    <select class="form-select" id="wishCategory" aria-label="Relationship">
+                        <option value="">How do you know Robert? (optional)</option>
+                        <option value="Family">Family</option>
+                        <option value="Friend">Friend</option>
+                        <option value="Classmate">Classmate</option>
+                        <option value="School">School</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-textarea" id="wishMessage" placeholder="Write your birthday wish for Robert..." maxlength="300" aria-label="Your wish"></textarea>
+                </div>
+                <button class="wish-submit" onclick="submitWish()">💌 Send Wish</button>
+                <div class="wish-confirmation" id="wishConfirmation">
+                    Your wish has been added to Robert's birthday wall ❤️
+                </div>
+            </div>
+            <div class="wishes-wall" id="wishesWall"></div>
+        </div>
+    </section>
+
+    <!-- ===== WHATSAPP ===== -->
+    <section class="fade-in">
+        <div class="section-label">Direct Message</div>
+        <h2 class="section-title">Send a WhatsApp Wish</h2>
+        <div class="section-divider"></div>
+        <div class="panel">
+            <span class="panel-icon">💬</span>
+            <h3>Send Robert a WhatsApp Wish</h3>
+            <p>Customize your message below, then send it directly to Robert's WhatsApp.</p>
+            <input type="text" class="whatsapp-message-input" id="whatsappMessage" value="Happy Birthday Robert! 🎉🎂" maxlength="200" aria-label="WhatsApp message">
+            <button class="whatsapp-btn" onclick="sendWhatsApp()">
+                <span>💬</span> Send Robert a WhatsApp Wish
+            </button>
+        </div>
+    </section>
+
+    <!-- ===== GIFT / MOMO ===== -->
+    <section class="fade-in">
+        <div class="section-label">Send a Gift</div>
+        <h2 class="section-title">A Gift for Robert</h2>
+        <div class="section-divider"></div>
+        <div class="panel">
+            <span class="panel-icon">🎁</span>
+            <h3>Send a Birthday Gift</h3>
+            <p>Want to make Robert's day even more special? Send a gift via mobile money below.</p>
+            <div class="phone-number-box" onclick="copyPhoneNumber()" title="Click to copy">
+                <span class="phone-number" id="momoNumber">+233 53 387 4270</span>
+                <button class="copy-btn" id="copyBtn">📋 Copy</button>
+            </div>
+            <p class="mobile-money-note">
+                Works with <span>MTN MoMo</span> • <span>Vodafone Cash</span> • <span>AirtelTigo Money</span>
+            </p>
+            <p class="mobile-money-note">
+                💰 Send your gift to this number, then <strong>WhatsApp the same number</strong> to request a song for Robert!
+            </p>
+            <div class="qr-box">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://wa.me/233533874270" alt="QR code to send a gift and request a song via WhatsApp" loading="lazy">
+                <span>Scan to send a gift & request a song</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SONG REQUEST ===== -->
+    <section class="fade-in">
+        <div class="section-label">Request a Song</div>
+        <h2 class="section-title">Dedicate a Song to Robert</h2>
+        <div class="section-divider"></div>
+        <div class="panel">
+            <span class="panel-icon">🎶</span>
+            <h3>Send a Song Request</h3>
+            <p>Send your gift to the number above, then WhatsApp the same number with the song you'd like dedicated to Robert. He'll play it at the celebration!</p>
+            <input type="text" class="whatsapp-message-input" id="songRequest" value="Hi Robert! 🎶 Please play this song for me: " maxlength="200" aria-label="Song request message">
+            <button class="whatsapp-btn" onclick="sendSongRequest()">
+                <span>🎶</span> Send Song Request
+            </button>
+        </div>
+    </section>
+
+    <!-- ===== CONFESSIONS ===== -->
+    <section class="fade-in">
+        <div class="section-label">Spill the Tea ☕</div>
+        <h2 class="section-title">Anonymous Confessions</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">
+            Tell Robert something playful about your relationship, a crazy truth, or what you like and hate most about him — all anonymously!
+        </p>
+        <div class="wishes-container">
+            <div class="wish-form">
+                <h3>🫣 Send an Anonymous Confession</h3>
+                <div class="form-group">
+                    <select class="form-select" id="confessionType" aria-label="Confession type">
+                        <option value="Crazy Truth">🤯 Crazy Truth</option>
+                        <option value="What I Like">😍 What I Like About You</option>
+                        <option value="What I Hate">😅 What I Hate About You</option>
+                        <option value="Our Relationship">💞 About Our Relationship</option>
+                        <option value="Other">✨ Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-textarea" id="confessionMessage" placeholder="Write your anonymous confession here... (nobody will know it's you!)" maxlength="300" aria-label="Your confession"></textarea>
+                </div>
+                <div class="form-group deliver-option">
+                    <input type="checkbox" id="confessionDeliver">
+                    <label for="confessionDeliver">Send directly to Robert's WhatsApp so he can receive and reply to you 🤫</label>
+                </div>
+                <button class="wish-submit" onclick="submitConfession()">🫣 Send Confession</button>
+                <div class="wish-confirmation" id="confessionConfirmation">
+                    Your confession has been posted anonymously! 🤫
+                </div>
+                <div class="wish-confirmation deliver-ok" id="confessionDelivered">
+                    Your confession has also been sent to Robert's WhatsApp — he can reply privately! 💬
+                </div>
+            </div>
+            <div class="wishes-wall" id="confessionsWall"></div>
+        </div>
+    </section>
+
+    <!-- ===== SHARE ===== -->
+    <section class="fade-in">
+        <div class="section-label">Spread the Joy</div>
+        <h2 class="section-title">Share This Celebration</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">Invite friends and family to be part of Robert's special day.</p>
+        <div class="share-row">
+            <button class="share-btn-round share-wa" onclick="shareWhatsApp()" aria-label="Share on WhatsApp">💬</button>
+            <button class="share-btn-round share-fb" onclick="shareFacebook()" aria-label="Share on Facebook">📘</button>
+            <button class="share-btn-round share-tw" onclick="shareTwitter()" aria-label="Share on X / Twitter">🐦</button>
+            <button class="share-btn-round share-copy" onclick="shareCopy()" aria-label="Copy link">🔗</button>
+        </div>
+    </section>
+
+    <!-- ===== MINI GAME ===== -->
+    <section class="fade-in">
+        <div class="section-label">Play</div>
+        <h2 class="section-title">Pop the Balloons!</h2>
+        <div class="section-divider"></div>
+        <div class="panel">
+            <div class="game-stats">
+                <div class="game-stat">
+                    <span class="game-stat-number" id="balloonScore">0</span>
+                    <span class="game-stat-label">Score</span>
+                </div>
+                <div class="game-stat">
+                    <span class="game-stat-number" id="balloonTime">30</span>
+                    <span class="game-stat-label">Seconds</span>
+                </div>
+            </div>
+            <div class="game-area" id="gameArea"></div>
+            <button class="btn btn-gold" onclick="startBalloonGame()">🎮 Start Game</button>
+            <div class="game-result" id="balloonResult"></div>
+        </div>
+    </section>
+
+    <!-- ===== FINAL FIREWORKS ===== -->
+    <section class="fade-in">
+        <div class="section-label">The Conclusion</div>
+        <h2 class="section-title">Here's to You, Robert</h2>
+        <div class="section-divider"></div>
+        <div class="final-toasts" id="finalToasts">
+            <div class="final-toast">To growth.</div>
+            <div class="final-toast">To family.</div>
+            <div class="final-toast">To memories.</div>
+            <div class="final-toast">To the people we carry with us.</div>
+            <div class="final-toast">To the future.</div>
+        </div>
+        <p class="final-message">
+            Happy Birthday, <span class="gold">Robert Mensah</span>. ❤️
+        </p>
+        <button class="btn btn-gold" onclick="finalCelebration()">🎆 Light Up the Sky</button>
+    </section>
+</main>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+<button class="music-btn" id="musicBtn" title="Toggle Music">🎵</button>
+
+<footer class="footer">
+    <div class="monogram">RM</div>
+    <p>Made with ❤️ for Robert Mensah • 24 August 2026</p>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/music-player.js"></script>
+</body>
+</html>

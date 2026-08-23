@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Robert Mensah's Birthday — A digital celebration of joy, memories, family, and the journey ahead.">
+    <meta name="theme-color" content="#0a0e27">
+    <meta property="og:title" content="Robert Mensah — Birthday Celebration">
+    <meta property="og:description" content="A digital celebration of Robert Mensah's journey, memories, family, and the adventures ahead.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="photo1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Robert Mensah — Birthday Celebration">
+    <meta name="twitter:description" content="Step into Robert's birthday celebration. A cinematic experience of joy and memories.">
+    <title>Robert Mensah — Birthday Celebration</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://twemoji.maxcdn.com/v/13.1.0/twemoji.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#countdown">Skip to content</a>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Animated Background -->
+<div class="bg-container">
+    <div class="bg-gradient"></div>
+    <div class="bg-stars"></div>
+    <div class="bg-stars-gold"></div>
+    <div class="bg-aurora"></div>
+    <div class="bg-aurora-gold"></div>
+</div>
+<div class="fx-container" id="fxContainer"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <a href="index.html" class="nav-brand">
+        <span class="nav-monogram">RM</span>
+        <span class="nav-title">Robert <span>Mensah</span></span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="story.html">Story</a></li>
+        <li><a href="memories.html">Memories</a></li>
+        <li><a href="celebrate.html">Celebrate</a></li>
+        <li><a href="celebrate.html#wishes" class="nav-cta">Leave a Wish 💌</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="active">Home</a>
+    <div class="menu-divider"></div>
+    <a href="story.html">Story</a>
+    <div class="menu-divider"></div>
+    <a href="memories.html">Memories</a>
+    <div class="menu-divider"></div>
+    <a href="celebrate.html">Celebrate</a>
+</div>
+
+<main>
+    <!-- ===== BIRTHDAY BANNER (auto-shows on Aug 24) ===== -->
+    <div class="birthday-banner" id="birthdayBanner">
+        <h3>🎉 It's Robert's Birthday Today! 🎉</h3>
+        <p>Join the celebration — leave a wish, play a game, and light up the sky!</p>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="page-hero" style="min-height:100vh;">
+        <div class="page-hero-bg">
+            <img src="my picture.jpeg" alt="Robert" width="1920" height="1080">
+        </div>
+        <h1>HAPPY BIRTHDAY<br><span class="gold">ROBERT MENSAH</span></h1>
+        <p>"Another year. Another chapter. Another reason to keep celebrating."</p>
+        <div style="display:flex;gap:15px;flex-wrap:wrap;justify-content:center;margin-top:35px;">
+            <a href="#countdown" class="btn btn-gold">🎂 Start the Celebration</a>
+            <a href="story.html" class="btn btn-outline">📖 My Story</a>
+        </div>
+    </section>
+
+    <!-- ===== COUNTDOWN ===== -->
+    <section class="fade-in" id="countdown">
+        <div class="section-label">The Countdown</div>
+        <h2 class="section-title">Counting Down to the Celebration</h2>
+        <div class="section-divider"></div>
+        <div class="countdown-container">
+            <div class="countdown-box"><span class="countdown-number" id="days">00</span><span class="countdown-label">Days</span></div>
+            <div class="countdown-box"><span class="countdown-number" id="hours">00</span><span class="countdown-label">Hours</span></div>
+            <div class="countdown-box"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">Minutes</span></div>
+            <div class="countdown-box"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">Seconds</span></div>
+        </div>
+    </section>
+
+    <!-- ===== CAKE ===== -->
+    <section class="cake-section fade-in">
+        <div class="section-label">Make a Wish</div>
+        <h2 class="section-title">Blow Out the Candles</h2>
+        <div class="section-divider"></div>
+        <div class="cake" id="cake">
+            <div class="cake-plate"></div>
+            <div class="cake-layer cake-bottom"></div>
+            <div class="cake-layer cake-middle"></div>
+            <div class="cake-layer cake-top"></div>
+            <div class="cake-frosting frosting-bottom"></div>
+            <div class="cake-frosting frosting-middle"></div>
+            <div class="cake-frosting frosting-top"></div>
+            <div class="candle" onclick="blowCandle(this)"><div class="flame"></div></div>
+            <div class="candle" onclick="blowCandle(this)"><div class="flame"></div></div>
+            <div class="candle" onclick="blowCandle(this)"><div class="flame"></div></div>
+            <div class="candle" onclick="blowCandle(this)"><div class="flame"></div></div>
+            <div class="candle" onclick="blowCandle(this)"><div class="flame"></div></div>
+        </div>
+        <p class="cake-message">Click the candles to blow them out. Make a wish! 🕯️</p>
+    </section>
+
+    <!-- ===== QUOTES ===== -->
+    <section class="fade-in">
+        <div class="section-label">Words to Live By</div>
+        <h2 class="section-title">Inspiration</h2>
+        <div class="section-divider"></div>
+        <div class="quote-rotator">
+            <p class="quote-text" id="quoteText"></p>
+            <span class="quote-author" id="quoteAuthor"></span>
+            <div class="quote-dots" id="quoteDots"></div>
+        </div>
+    </section>
+
+    <!-- ===== QUICK LINKS ===== -->
+    <section class="fade-in">
+        <div class="section-label">Explore</div>
+        <h2 class="section-title">Where Would You Like to Go?</h2>
+        <div class="section-divider"></div>
+        <div class="cards-grid">
+            <a href="story.html" class="info-card" style="text-decoration:none;">
+                <span class="card-icon">📖</span>
+                <h3>My Story</h3>
+                <p>The chapters of the journey — from the beginning to this milestone.</p>
+                <span class="card-tag">Read More →</span>
+            </a>
+            <a href="memories.html" class="info-card" style="text-decoration:none;">
+                <span class="card-icon">📸</span>
+                <h3>Memories</h3>
+                <p>Photo streams, film strips, polaroids and fun facts.</p>
+                <span class="card-tag">View Gallery →</span>
+            </a>
+            <a href="celebrate.html" class="info-card" style="text-decoration:none;">
+                <span class="card-icon">🎉</span>
+                <h3>Celebrate</h3>
+                <p>Leave a wish, send a gift, play a game and light up the sky.</p>
+                <span class="card-tag">Join In →</span>
+            </a>
+        </div>
+    </section>
+</main>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+<button class="music-btn" id="musicBtn" title="Toggle Music">🎵</button>
+
+<footer class="footer">
+    <div class="monogram">RM</div>
+    <p>Made with ❤️ for Robert Mensah • 24 August 2026</p>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/music-player.js"></script>
+</body>
+</html>
