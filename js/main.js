@@ -136,6 +136,28 @@ function showToast(message) {
     toast._timer = setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
+/* ---------- BIRTHDAY LETTER ---------- */
+(function initBirthdayLetter() {
+    const envelope = document.getElementById('envelope');
+    const letter = document.getElementById('birthdayLetter');
+    const close = document.getElementById('closeLetter');
+    if (!envelope || !letter || !close) return;
+    envelope.addEventListener('click', () => {
+        envelope.setAttribute('aria-expanded', 'true');
+        envelope.classList.add('opened');
+        letter.hidden = false;
+        letter.classList.add('revealed');
+        createConfettiBurst(18);
+        setTimeout(() => close.focus(), 400);
+    });
+    close.addEventListener('click', () => {
+        envelope.setAttribute('aria-expanded', 'false');
+        envelope.classList.remove('opened');
+        letter.classList.remove('revealed');
+        setTimeout(() => { letter.hidden = true; envelope.focus(); }, 350);
+    });
+})();
+
 document.addEventListener('click', (e) => {
     if (!e.target.closest('button') && !e.target.closest('a') && !e.target.closest('.lightbox')) {
         if (Math.random() < 0.3) createEmojiBurst(e.clientX, e.clientY);
