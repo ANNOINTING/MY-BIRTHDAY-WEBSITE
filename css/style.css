@@ -1509,3 +1509,56 @@ body.welcome-active { overflow: hidden; }
     .quote-text, .final-toast { transition: none; }
     .welcome-content { animation: none; }
 }
+
+/* ===== SHARED VISUAL POLISH ===== */
+:root {
+    --rose: #d98f88;
+    --sage: #8bb8ae;
+    --surface: rgba(17, 25, 58, 0.78);
+    --surface-strong: rgba(12, 18, 45, 0.92);
+}
+
+.bg-gradient {
+    background: radial-gradient(circle at 12% 18%, rgba(217,143,136,0.12), transparent 28%),
+        radial-gradient(circle at 86% 78%, rgba(139,184,174,0.1), transparent 30%),
+        linear-gradient(135deg, #080d24 0%, #101b3d 52%, #0a102b 100%);
+    opacity: 1;
+    animation: none;
+}
+
+section:not(.page-hero) { border-top: 1px solid rgba(240, 217, 140, 0.08); }
+.section-label { color: var(--rose); }
+.section-title { letter-spacing: 0.02em; }
+.section-divider { background: linear-gradient(90deg, transparent, var(--rose), var(--gold), transparent); }
+.page-hero h1 .gold { background-image: linear-gradient(135deg, var(--gold-light), var(--rose), var(--gold)); }
+.page-hero p { color: #c1c8d5; }
+
+.info-card, .panel, .wish-form, .wishes-wall, .fun-card, .game-panel {
+    background: var(--surface);
+    border-color: rgba(240, 217, 140, 0.16);
+    border-radius: 14px;
+}
+.info-card:hover, .panel:hover, .wish-form:hover { border-color: rgba(217,143,136,0.48); }
+.info-card h3, .panel h3, .wish-form h3 { color: var(--gold-light); }
+.card-tag, .phone-number, .share-btn-round { color: var(--rose); }
+
+.memory-grid-item, .mem-stream-item, .floating-photo, .polaroid, .fam-card {
+    border-radius: 10px;
+}
+.memory-grid-item:focus-visible, .mem-stream-item:focus-visible,
+.floating-photo:focus-visible, .polaroid:focus-visible, .fam-card:focus-visible {
+    outline: 2px solid var(--rose);
+    outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+    section { padding: 68px 16px; }
+    .page-hero { min-height: 72vh; padding: 120px 18px 70px; }
+    .page-hero h1 { letter-spacing: 2px; }
+    .section-title { font-size: clamp(2rem, 10vw, 2.8rem); }
+    .btn { width: 100%; justify-content: center; padding-inline: 22px; }
+    .page-hero > div[style] { width: min(100%, 320px); }
+    .countdown-container { gap: 8px; }
+    .countdown-box { min-width: calc(50% - 8px); padding: 20px 10px; }
+    .countdown-number { font-size: 2.2rem; }
+}
