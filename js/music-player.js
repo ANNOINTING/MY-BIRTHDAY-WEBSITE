@@ -46,6 +46,11 @@
         'color:#0a0e27;font-size:1.15rem;border:none;}',
         '.player-seek{flex:1;min-width:80px;accent-color:#d4af37;cursor:pointer;}',
         '.player-time{font-size:0.7rem;color:#9aa3b5;white-space:nowrap;font-variant-numeric:tabular-nums;}',
+        '.player-visualizer{display:flex;align-items:flex-end;gap:3px;width:28px;height:22px;flex-shrink:0;}',
+        '.player-visualizer i{display:block;width:4px;height:35%;background:#d4af37;border-radius:2px;}',
+        '#musicPlayer.playing .player-visualizer i{animation:playerBars 0.8s ease-in-out infinite alternate;}',
+        '#musicPlayer.playing .player-visualizer i:nth-child(2){animation-delay:-0.2s;}#musicPlayer.playing .player-visualizer i:nth-child(3){animation-delay:-0.45s;}',
+        '@keyframes playerBars{to{height:100%;}}',
         '.player-close{background:none;border:none;color:#6b7280;font-size:1rem;cursor:pointer;',
         'padding:4px;transition:color 0.3s;}',
         '.player-close:hover{color:#f0d98c;}',
@@ -123,6 +128,8 @@
         const playing = playerAudio ? !playerAudio.paused : !!synthTimer;
         playBtn.textContent = playing ? '\u23F8\uFE0F' : '\u25B6\uFE0F';
         setPlayingState(playing);
+        const player = document.getElementById('musicPlayer');
+        if (player) player.classList.toggle('playing', playing);
         if (playerAudio && playerAudio.duration) {
             seek.value = Math.round((playerAudio.currentTime / playerAudio.duration) * 100);
             timeLabel.textContent = fmtTime(playerAudio.currentTime) + ' / ' + fmtTime(playerAudio.duration);
@@ -199,6 +206,7 @@
             '<button class="player-btn" id="prevBtn" aria-label="Previous song">\u23EE\uFE0F</button>' +
             '<button class="player-btn player-play" id="playPauseBtn" aria-label="Play or pause">\u25B6\uFE0F</button>' +
             '<button class="player-btn" id="nextBtn" aria-label="Next song">\u23ED\uFE0F</button>' +
+            '<div class="player-visualizer" aria-label="Music playing indicator"><i></i><i></i><i></i></div>' +
             '<input type="range" class="player-seek" id="seekBar" min="0" max="100" value="0" aria-label="Seek">' +
             '<span class="player-time" id="timeLabel">0:00</span>' +
             '<button class="player-close" id="playerCloseBtn" aria-label="Close player">\u2715</button>';

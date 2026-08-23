@@ -17,11 +17,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://twemoji.maxcdn.com/v/13.1.0/twemoji.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <a class="skip-link" href="#countdown">Skip to content</a>
+
+<div class="welcome-screen" id="welcomeScreen" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+    <div class="welcome-content">
+        <span class="welcome-kicker">A birthday story, made with love</span>
+        <h2 id="welcomeTitle">Welcome to Robert's celebration</h2>
+        <p>Step inside a collection of memories, milestones, and wishes for the year ahead.</p>
+        <button class="btn btn-gold" id="enterExperience">Enter the Experience <span aria-hidden="true">→</span></button>
+    </div>
+</div>
 
 <!-- Scroll Progress -->
 <div class="scroll-progress" id="scrollProgress"></div>

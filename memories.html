@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://twemoji.maxcdn.com/v/13.1.0/twemoji.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -266,8 +265,8 @@
 <button class="music-btn" id="musicBtn" title="Toggle Music">🎵</button>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" onclick="closeLightbox()" aria-label="Close">✕</button>
     <button class="lightbox-nav lightbox-prev" onclick="changePhoto(-1)" aria-label="Previous">❮</button>
     <img class="lightbox-image" id="lightboxImage" src="" alt="Gallery photo">
     <button class="lightbox-nav lightbox-next" onclick="changePhoto(1)" aria-label="Next">❯</button>

@@ -8,6 +8,23 @@ const CONFIG = {
     momoNumber: '+233533874270'
 };
 
+/* Keep the opening moment special without interrupting every repeat visit. */
+(function initWelcome() {
+    const screen = document.getElementById('welcomeScreen');
+    const enter = document.getElementById('enterExperience');
+    if (!screen || !enter) return;
+    let hasEntered = false;
+    try { hasEntered = sessionStorage.getItem('robert_birthday_entered') === 'true'; } catch (e) {}
+    if (hasEntered) { screen.remove(); return; }
+    document.body.classList.add('welcome-active');
+    enter.addEventListener('click', () => {
+        try { sessionStorage.setItem('robert_birthday_entered', 'true'); } catch (e) {}
+        document.body.classList.remove('welcome-active');
+        screen.classList.add('leaving');
+        setTimeout(() => screen.remove(), 650);
+    });
+})();
+
 /* ---------- NAVBAR ---------- */
 (function initNav() {
     const toggle = document.getElementById('navToggle');
@@ -191,17 +208,30 @@ const photoArray = [
 let currentPhoto = 0;
 
 function openLightbox(index) {
-    currentPhoto = ((index % photoArray.length) + photoArray.length) % photoArray.length;
+    const trigger = typeof event !== 'undefined' ? event.currentTarget : null;
+    const source = trigger && trigger.querySelector ? trigger.querySelector('img')?.getAttribute('src') : null;
+    const sourceIndex = source ? photoArray.findIndex(photo => photo.src === source) : -1;
+    currentPhoto = sourceIndex >= 0 ? sourceIndex : ((index % photoArray.length) + photoArray.length) % photoArray.length;
     const lb = document.getElementById('lightbox');
     if (!lb) return;
-    document.getElementById('lightboxImage').src = photoArray[currentPhoto].src;
+    const image = document.getElementById('lightboxImage');
+    image.src = photoArray[currentPhoto].src;
+    image.alt = photoArray[currentPhoto].caption.replace(/^\S+\s/, '');
     updateLightboxInfo();
+    lb.dataset.previousFocus = document.activeElement && document.activeElement.id ? document.activeElement.id : '';
     lb.classList.add('active');
+    lb.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    document.getElementById('lightboxClose')?.focus();
 }
 function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('active');
+    const lb = document.getElementById('lightbox');
+    if (!lb) return;
+    lb.classList.remove('active');
+    lb.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    const previousFocus = lb.dataset.previousFocus && document.getElementById(lb.dataset.previousFocus);
+    if (previousFocus) previousFocus.focus();
 }
 function changePhoto(dir) {
     currentPhoto = (currentPhoto + dir + photoArray.length) % photoArray.length;
@@ -222,10 +252,19 @@ window.closeLightbox = closeLightbox;
 window.changePhoto = changePhoto;
 
 document.addEventListener('keydown', (e) => {
-    if (document.getElementById('lightbox') && document.getElementById('lightbox').classList.contains('active')) {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox && lightbox.classList.contains('active')) {
         if (e.key === 'Escape') closeLightbox();
         if (e.key === 'ArrowLeft') changePhoto(-1);
         if (e.key === 'ArrowRight') changePhoto(1);
+        if (e.key === 'Tab') {
+            const focusable = lightbox.querySelectorAll('button, [tabindex="0"]');
+            if (!focusable.length) return;
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
     }
 });
 const lightboxEl = document.getElementById('lightbox');
@@ -238,6 +277,17 @@ if (lightboxEl) {
         if (Math.abs(d) > 50) changePhoto(d > 0 ? -1 : 1);
     });
 }
+
+/* Give legacy photo tiles real keyboard activation without changing their layout. */
+document.querySelectorAll('[onclick*="openLightbox"]').forEach(tile => {
+    tile.setAttribute('role', 'button');
+    tile.setAttribute('tabindex', '0');
+    tile.addEventListener('keydown', event => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        tile.click();
+    });
+});
 
 /* ---------- MEMORY STREAMS (legacy) ---------- */
 function toggleStream(id, btn) {
@@ -450,87 +500,6 @@ if (finalToasts) {
     }, { threshold: 0.3 });
     obs.observe(finalToasts);
 }
-
-/* ---------- MUSIC ---------- */
-let audioCtx = null, isPlaying = false, musicTimer = null;
-function playNote(freq, startTime, duration, type, volume, pan) {
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    const panNode = audioCtx.createStereoPanner();
-    osc.type = type;
-    osc.frequency.value = freq;
-    const attack = Math.min(0.02, duration * 0.3);
-    const release = Math.min(0.05, duration * 0.4);
-    gain.gain.setValueAtTime(0, startTime);
-    gain.gain.linearRampToValueAtTime(volume, startTime + attack);
-    gain.gain.setValueAtTime(volume, startTime + duration - release);
-    gain.gain.linearRampToValueAtTime(0.001, startTime + duration);
-    panNode.pan.value = pan;
-    osc.connect(panNode); panNode.connect(gain); gain.connect(audioCtx.destination);
-    osc.start(startTime); osc.stop(startTime + duration);
-}
-function playBirthdaySong() {
-    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    const t = audioCtx.currentTime;
-    const beat = 0.5, bar = beat * 4, V = 0.12;
-    const C = 261.63, E = 329.63, G = 392.00, B = 493.88, F = 349.23, A = 440.00, D = 293.66;
-    const C2 = C * 2, D2 = D * 2, E2 = E * 2, F2 = F * 2, G2 = G * 2;
-    const chords = {
-        C: [C, E, G, C2], F: [F, A, C2, F2], G: [G, B, D2, G2],
-        Am: [A * 0.5, C, E, A]
-    };
-    chords.C.forEach((f, i) => playNote(f, t + i * 0.25, 0.2, 'sine', V * 0.4, -0.3));
-    chords.F.forEach((f, i) => playNote(f, t + bar + i * 0.25, 0.2, 'sine', V * 0.4, -0.3));
-    const bassRoots = [
-        [C * 0.5, 0], [C * 0.5, bar],
-        [F * 0.5, bar * 2], [G * 0.5, bar * 3],
-        [C * 0.5, bar * 4], [F * 0.5, bar * 5], [C * 0.5, bar * 6], [G * 0.5, bar * 7],
-        [C * 0.5, bar * 8], [A * 0.5, bar * 9], [F * 0.5, bar * 10], [E * 0.5, bar * 11],
-        [C * 0.5, bar * 12], [C * 0.5, bar * 13]
-    ];
-    bassRoots.forEach(([f, s]) => playNote(f, t + s, beat * 1.8, 'sawtooth', V * 0.8, -0.6));
-    const compBars = [
-        ['C', 0], ['F', bar], ['C', bar * 2], ['G', bar * 3],
-        ['C', bar * 4], ['F', bar * 5], ['C', bar * 6], ['G', bar * 7],
-        ['C', bar * 8], ['Am', bar * 9], ['F', bar * 10], ['G', bar * 11],
-        ['C', bar * 12], ['C', bar * 13]
-    ];
-    compBars.forEach(([chord, ct]) => {
-        chords[chord].forEach((f, i) => playNote(f, t + ct + i * 0.3, 0.25, 'square', V * 0.35, i * 0.1 - 0.15));
-    });
-    const melody = [
-        [G, 4 * beat, 0.4], [G, 4 * beat + 0.5, 0.5], [A, 5 * beat, 0.4], [G, 5 * beat + 0.5, 0.4],
-        [C2, 6 * beat, 0.4], [B, 6 * beat + 0.5, 0.8],
-        [G, 8 * beat, 0.4], [G, 8 * beat + 0.5, 0.5], [A, 9 * beat, 0.4], [G, 9 * beat + 0.5, 0.4],
-        [D2, 10 * beat, 0.4], [C2, 10 * beat + 0.5, 0.8],
-        [G, 12 * beat, 0.4], [G, 12 * beat + 0.5, 0.5], [G2, 13 * beat, 0.4], [E2, 13 * beat + 0.5, 0.4],
-        [C2, 14 * beat, 0.4], [B, 14 * beat + 0.5, 0.4], [A, 15 * beat, 0.8],
-        [F2, 16 * beat, 0.4], [F2, 16 * beat + 0.5, 0.5], [E2, 17 * beat, 0.4], [C2, 17 * beat + 0.5, 0.4],
-        [D2, 18 * beat, 0.4], [C2, 18 * beat + 0.5, 0.8]
-    ];
-    melody.forEach(([f, s, d]) => playNote(f, t + s, d, 'triangle', V, 0.5));
-}
-function toggleMusic() {
-    const btn = document.getElementById('musicBtn');
-    if (!isPlaying) {
-        try {
-            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            if (audioCtx.state === 'suspended') audioCtx.resume();
-            playBirthdaySong();
-            btn.classList.add('playing');
-            btn.textContent = '\u23F8\uFE0F';
-            isPlaying = true;
-            musicTimer = setInterval(() => { if (isPlaying && audioCtx) playBirthdaySong(); }, 20000);
-        } catch (e) {}
-    } else {
-        clearInterval(musicTimer);
-        if (audioCtx) { audioCtx.close(); audioCtx = null; }
-        btn.classList.remove('playing');
-        btn.textContent = '\u{1F3B5}';
-        isPlaying = false;
-    }
-}
-/* Music button is now handled by js/music-player.js (real songs playlist) */
 
 /* ---------- SCROLL PROGRESS + BACK TO TOP ---------- */
 (function initScrollUI() {
