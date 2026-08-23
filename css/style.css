@@ -1667,6 +1667,37 @@ section:not(.page-hero) { border-top: 1px solid rgba(240, 217, 140, 0.08); }
     .party-popper, .popper-piece { animation: none; opacity: 0; }
 }
 
+/* ===== SIGNATURE NAVIGATION ===== */
+.navbar { height: 78px; padding: 0 clamp(16px, 4vw, 54px); background: rgba(9,7,10,0.78); border-bottom: 1px solid rgba(212,175,106,0.22); }
+.navbar::before { content: ''; position: absolute; inset: 8px clamp(10px, 2vw, 28px); border: 1px solid rgba(212,175,106,0.08); border-radius: 16px; pointer-events: none; }
+.nav-brand { gap: 13px; position: relative; z-index: 1; }
+.nav-monogram { width: 46px; height: 46px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, var(--gold-light), var(--gold) 55%, #926c31); box-shadow: 0 0 0 4px rgba(212,175,106,0.1), 0 5px 22px rgba(212,175,106,0.28); }
+.nav-title { font-size: 0.98rem; letter-spacing: 3.5px; }
+.nav-links { gap: 3px; padding: 5px; border: 1px solid rgba(212,175,106,0.12); border-radius: 999px; background: rgba(58,11,22,0.34); }
+.nav-links a { padding: 9px 15px; border-radius: 999px; font-size: 0.72rem; letter-spacing: 1.7px; }
+.nav-links a::after { bottom: 5px; background: var(--gold-light); }
+.nav-links a:hover { background: rgba(201,141,152,0.1); }
+.nav-links a.active { background: rgba(212,175,106,0.12); color: var(--gold-light); }
+.nav-cta { margin-left: 9px !important; padding: 11px 19px !important; color: var(--midnight) !important; background: linear-gradient(135deg, var(--gold-light), var(--gold)) !important; box-shadow: 0 5px 20px rgba(212,175,106,0.25); }
+.nav-cta:hover { color: var(--midnight) !important; background: linear-gradient(135deg, #fff0bd, var(--gold-light)) !important; }
+.nav-toggle { position: relative; z-index: 1001; background: rgba(90,11,24,0.38); border-color: rgba(212,175,106,0.45); border-radius: 50%; }
+.mobile-menu { background: radial-gradient(circle at 50% 25%, rgba(90,11,24,0.65), transparent 42%), rgba(9,7,10,0.98); }
+.mobile-menu a { font-size: clamp(1.9rem, 8vw, 3rem); padding: 12px 34px; color: var(--white); }
+.mobile-menu a.active { color: var(--gold-light); text-shadow: 0 0 25px rgba(241,210,122,0.32); }
+.mobile-menu .menu-divider { width: 90px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.65; }
+
+@media (max-width: 900px) {
+    .navbar { height: 70px; }
+    .nav-monogram { width: 42px; height: 42px; }
+}
+
+@media (max-width: 600px) {
+    .navbar { padding: 0 15px; }
+    .navbar::before { inset: 8px; }
+    .nav-title { display: block; font-size: 0.75rem; letter-spacing: 2.2px; }
+    .nav-toggle { width: 44px; height: 44px; }
+}
+
 /* Let portrait photographs keep their composition instead of forcing a landscape crop. */
 .memory-grid-item { aspect-ratio: 4 / 5; }
 .memory-grid-item.large { aspect-ratio: 1 / 1; }
