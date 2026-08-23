@@ -30,16 +30,26 @@ const CONFIG = {
     const toggle = document.getElementById('navToggle');
     const menu = document.getElementById('mobileMenu');
     if (toggle && menu) {
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-controls', 'mobileMenu');
         toggle.addEventListener('click', () => {
             toggle.classList.toggle('open');
             menu.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', String(menu.classList.contains('open')));
             document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
         });
         menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
             toggle.classList.remove('open');
             menu.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
             document.body.style.overflow = '';
         }));
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && menu.classList.contains('open')) {
+                toggle.click();
+                toggle.focus();
+            }
+        });
     }
 })();
 

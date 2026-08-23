@@ -46,6 +46,7 @@
         'color:#0a0e27;font-size:1.15rem;border:none;}',
         '.player-seek{flex:1;min-width:80px;accent-color:#d4af37;cursor:pointer;}',
         '.player-time{font-size:0.7rem;color:#9aa3b5;white-space:nowrap;font-variant-numeric:tabular-nums;}',
+        '.player-volume{width:64px;accent-color:#d4af37;cursor:pointer;}',
         '.player-visualizer{display:flex;align-items:flex-end;gap:3px;width:28px;height:22px;flex-shrink:0;}',
         '.player-visualizer i{display:block;width:4px;height:35%;background:#d4af37;border-radius:2px;}',
         '#musicPlayer.playing .player-visualizer i{animation:playerBars 0.8s ease-in-out infinite alternate;}',
@@ -208,6 +209,7 @@
             '<button class="player-btn" id="nextBtn" aria-label="Next song">\u23ED\uFE0F</button>' +
             '<div class="player-visualizer" aria-label="Music playing indicator"><i></i><i></i><i></i></div>' +
             '<input type="range" class="player-seek" id="seekBar" min="0" max="100" value="0" aria-label="Seek">' +
+            '<input type="range" class="player-volume" id="volumeBar" min="0" max="1" step="0.05" value="1" aria-label="Volume">' +
             '<span class="player-time" id="timeLabel">0:00</span>' +
             '<button class="player-close" id="playerCloseBtn" aria-label="Close player">\u2715</button>';
         document.body.appendChild(p);
@@ -221,6 +223,9 @@
             if (playerAudio && playerAudio.duration) {
                 playerAudio.currentTime = (e.target.value / 100) * playerAudio.duration;
             }
+        });
+        document.getElementById('volumeBar').addEventListener('input', function (e) {
+            if (playerAudio) playerAudio.volume = Number(e.target.value);
         });
     }
 
