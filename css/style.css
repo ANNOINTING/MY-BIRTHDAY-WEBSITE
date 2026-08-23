@@ -348,8 +348,13 @@ section { padding: 90px 20px; max-width: 1200px; margin: 0 auto; position: relat
 }
 
 /* ===== CAKE ===== */
-.cake-section { text-align: center; }
+.cake-section { text-align: center; isolation: isolate; }
+.cake-section::before, .cake-section::after { content: ''; position: absolute; z-index: -1; pointer-events: none; }
+.cake-section::before { width: 180px; height: 180px; top: 28%; left: 10%; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(241,210,122,0.6) 0 5%, transparent 6%), radial-gradient(circle, rgba(165,18,42,0.32), transparent 68%); opacity: 0.75; }
+.cake-section::after { width: 220px; height: 220px; top: 25%; right: 8%; border-radius: 50%; background: radial-gradient(circle at 65% 35%, rgba(241,210,122,0.45) 0 4%, transparent 5%), radial-gradient(circle, rgba(90,11,24,0.42), transparent 68%); opacity: 0.72; }
 .cake { position: relative; width: 300px; height: 250px; margin: 0 auto 30px; cursor: pointer; }
+.cake:focus-visible { outline: 2px solid var(--rose); outline-offset: 8px; border-radius: 20px; }
+.cake.spotlight { filter: drop-shadow(0 0 28px rgba(241,210,122,0.45)); }
 .cake-plate {
     position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
     width: 320px; height: 20px;
@@ -1253,6 +1258,13 @@ section { padding: 90px 20px; max-width: 1200px; margin: 0 auto; position: relat
     50% { transform: translateY(-50vh) rotate(5deg); }
     100% { transform: translateY(-120vh) rotate(-5deg); }
 }
+.party-popper { position: fixed; bottom: 9vh; width: 34px; height: 82px; z-index: 2002; border: 2px solid var(--gold); border-radius: 7px 7px 14px 14px; background: linear-gradient(145deg, var(--wine), var(--midnight)); transform-origin: bottom center; animation: popperFire 0.55s ease-out forwards; }
+.party-popper-left { left: 8vw; transform: rotate(-48deg); }
+.party-popper-right { right: 8vw; transform: rotate(48deg); animation-name: popperFireRight; }
+.popper-piece { position: absolute; left: 50%; bottom: 72px; width: 7px; height: 16px; border-radius: 2px; animation: popperBurst 1.9s ease-out forwards; transform-origin: bottom center; }
+@keyframes popperFire { 0% { opacity: 0; transform: scale(0.65) rotate(-48deg); } 40% { opacity: 1; } 100% { opacity: 1; transform: scale(1) rotate(-48deg); } }
+@keyframes popperFireRight { 0% { opacity: 0; transform: scale(0.65) rotate(48deg); } 40% { opacity: 1; } 100% { opacity: 1; transform: scale(1) rotate(48deg); } }
+@keyframes popperBurst { 0% { opacity: 1; transform: rotate(var(--angle)) translateY(0); } 72% { opacity: 1; } 100% { opacity: 0; transform: rotate(var(--angle)) translateY(var(--distance)) translateX(var(--fall)); } }
 .emoji-burst {
     position: fixed; font-size: 1.5rem;
     pointer-events: none; z-index: 2001;
@@ -1607,6 +1619,10 @@ section:not(.page-hero) { border-top: 1px solid rgba(240, 217, 140, 0.08); }
     .letter-copy { font-size: 1.25rem; }
     .friend-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .friend-card:last-child { grid-column: 1 / -1; width: calc(50% - 4px); justify-self: center; }
+    .cake-section::before { left: -80px; }
+    .cake-section::after { right: -100px; }
+    .party-popper-left { left: 2vw; }
+    .party-popper-right { right: 2vw; }
 }
 
 /* ===== PHOTO PRESENTATION RESTORATION ===== */
@@ -1641,6 +1657,7 @@ section:not(.page-hero) { border-top: 1px solid rgba(240, 217, 140, 0.08); }
 @media (prefers-reduced-motion: reduce) {
     .photo-chapter-bg img { transition: none; transform: scale(1); }
     .mem-stream-item:nth-child(n), .floating-photo:nth-child(n) { transform: none; }
+    .party-popper, .popper-piece { animation: none; opacity: 0; }
 }
 
 /* Let portrait photographs keep their composition instead of forcing a landscape crop. */

@@ -216,6 +216,23 @@ function blowCandle(candle) {
 }
 window.blowCandle = blowCandle;
 
+const cake = document.getElementById('cake');
+if (cake) {
+    const activateCake = () => {
+        if (cake.dataset.activated === 'true') return;
+        cake.dataset.activated = 'true';
+        cake.classList.add('spotlight');
+        createConfettiBurst(18);
+        const bounds = cake.getBoundingClientRect();
+        createEmojiBurst(bounds.left + bounds.width / 2, bounds.top + bounds.height / 2);
+        showToast('The candles are glowing for you, Robert!');
+    };
+    cake.addEventListener('click', activateCake);
+    cake.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); activateCake(); }
+    });
+}
+
 /* ---------- LIGHTBOX ---------- */
 const photoArray = [
     { src: 'photo1.jpg', caption: '\u2728 A Moment in Time' },
@@ -513,9 +530,30 @@ function finalCelebration() {
     for (let i = 0; i < 8; i++) setTimeout(createFirework, i * 300);
     createConfettiBurst(60);
     createBalloons(10);
+    firePartyPoppers();
+    document.body.classList.add('finale-active');
     showToast('\u{1F386} Here\u2019s to you, Robert! \u{1F382}');
 }
 window.finalCelebration = finalCelebration;
+
+function firePartyPoppers() {
+    const colors = ['#d4af6a', '#a5122a', '#f8f0e3', '#c98d98'];
+    [-1, 1].forEach(direction => {
+        const popper = document.createElement('span');
+        popper.className = 'party-popper party-popper-' + (direction < 0 ? 'left' : 'right');
+        document.body.appendChild(popper);
+        setTimeout(() => popper.remove(), 2600);
+        for (let i = 0; i < 24; i++) {
+            const piece = document.createElement('span');
+            piece.className = 'popper-piece';
+            piece.style.setProperty('--angle', (direction * (Math.random() * 55 + 28)) + 'deg');
+            piece.style.setProperty('--distance', (Math.random() * 180 + 90) + 'px');
+            piece.style.setProperty('--fall', (Math.random() * 180 + 80) + 'px');
+            piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            popper.appendChild(piece);
+        }
+    });
+}
 
 // Animate final toasts when visible
 const finalToasts = document.getElementById('finalToasts');
