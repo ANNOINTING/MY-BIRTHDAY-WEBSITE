@@ -327,13 +327,13 @@ window.pauseStream = pauseStream;
 /* ---------- FUN FACTS ---------- */
 const FUN_FACTS = [
     { icon: '\u{1F382}', text: 'Robert was born on August 24th in Ghana.' },
-    { icon: '\u{1F393}', text: 'Robert graduated as Overall Best Student at Mankranso SHS with 7 A\u2019s and 1 B in WASSCE.' },
-    { icon: '\u{1F4DA}', text: 'Robert is studying Computer Science at the University of Ghana.' },
-    { icon: '\u{1F46A}', text: 'Family is Robert\u2019s biggest source of strength and motivation.' },
-    { icon: '\u{1F30D}', text: 'Robert dreams of building software that people around the world will use.' },
-    { icon: '\u{1F3B5}', text: 'This website plays its very own Happy Birthday tune \u2014 try the music button!' },
-    { icon: '\u{1F4F8}', text: 'Every photo on this page captures a moment Robert never wants to forget.' },
-    { icon: '\u{1F3AE}', text: 'Robert built this entire birthday experience himself \u2014 every animation and sound.' }
+    { icon: '\u{1F46A}', text: 'Family is one of the biggest reasons birthdays feel special.' },
+    { icon: '\u{1F389}', text: 'A birthday is a chance to celebrate the people and moments that matter.' },
+    { icon: '\u{1F91D}', text: 'Good friends make ordinary moments worth remembering.' },
+    { icon: '\u{1F3B5}', text: 'This celebration has its own Happy Birthday tune \u2014 try the music button!' },
+    { icon: '\u{1F4F8}', text: 'Every photo on this page keeps a special moment close.' },
+    { icon: '\u{1F381}', text: 'The best gifts are shared memories, kind words, and time together.' },
+    { icon: '\u{1F382}', text: 'Make a wish, light the candles, and enjoy the celebration.' }
 ];
 let funIndex = 0;
 function nextFunFact() {
