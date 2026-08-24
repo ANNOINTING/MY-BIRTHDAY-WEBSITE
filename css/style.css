@@ -261,6 +261,58 @@ body {
     75% { transform: translateY(-4px); }
 }
 
+/* ===== FLOATING CHAT BUTTON ===== */
+.chat-float {
+    position: fixed;
+    bottom: 170px;
+    right: 24px;
+    z-index: 100;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2ed573, #1eae98, #158a7d);
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    box-shadow: 0 8px 30px rgba(46,213,115,0.4);
+    animation: chatBounce 2.5s ease-in-out infinite;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--midnight);
+    text-decoration: none;
+}
+.chat-float:hover {
+    transform: scale(1.12);
+    box-shadow: 0 12px 40px rgba(46,213,115,0.6);
+    animation: none;
+}
+.chat-float:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+}
+@keyframes chatBounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    20% { transform: translateY(-10px) scale(1.05); }
+    40% { transform: translateY(0) scale(1); }
+    60% { transform: translateY(-5px) scale(1.02); }
+    80% { transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 768px) {
+    .gift-float { bottom: 80px; right: 18px; width: 52px; height: 52px; font-size: 1.4rem; }
+    .chat-float { bottom: 150px; right: 18px; width: 52px; height: 52px; font-size: 1.4rem; }
+}
+@media (max-width: 600px) {
+    .gift-float { bottom: 70px; right: 14px; width: 48px; height: 48px; font-size: 1.2rem; }
+    .chat-float { bottom: 130px; right: 14px; width: 48px; height: 48px; font-size: 1.2rem; }
+}
+@supports (padding: env(safe-area-inset-bottom)) {
+    .gift-float { bottom: calc(100px + env(safe-area-inset-bottom)); }
+    .chat-float { bottom: calc(170px + env(safe-area-inset-bottom)); }
+}
+
 /* ===== GIFT OVERLAY ===== */
 .gift-overlay {
     position: fixed;

@@ -69,6 +69,16 @@ const CONFIG = {
     document.body.appendChild(container);
 })();
 
+/* ---------- FLOATING CHAT BUTTON ---------- */
+(function initChatFloat() {
+    const btn = document.createElement('a');
+    btn.href = 'chat.html';
+    btn.className = 'chat-float';
+    btn.setAttribute('aria-label', 'Join live chat');
+    btn.innerHTML = '💬';
+    document.body.appendChild(btn);
+})();
+
 /* ---------- GIFT OVERLAY ---------- */
 function openGiftOverlay() {
     const overlay = document.getElementById('giftOverlay');
