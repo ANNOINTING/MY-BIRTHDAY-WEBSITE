@@ -2,20 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Robert Mensah's Memories — photos, moments and fun facts.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Robert Mensah's Memories — every photograph, every person, every moment.">
     <meta name="theme-color" content="#0a0e27">
     <title>Memories — Robert Mensah</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📸</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@700;900&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <a class="skip-link" href="#memories-hero">Skip to content</a>
 
-<!-- Scroll Progress -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <div class="bg-container">
@@ -27,7 +26,6 @@
 </div>
 <div class="fx-container" id="fxContainer"></div>
 
-<!-- ===== NAVBAR ===== -->
 <nav class="navbar">
     <a href="index.html" class="nav-brand">
         <span class="nav-monogram">RM</span>
@@ -35,10 +33,11 @@
     </a>
     <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="story.html">Story</a></li>
         <li><a href="memories.html" class="active">Memories</a></li>
+        <li><a href="wishes.html">Wishes</a></li>
+        <li><a href="gift.html">🎁 Gift</a></li>
+        <li><a href="music.html">🎵 Music</a></li>
         <li><a href="celebrate.html">Celebrate</a></li>
-        <li><a href="celebrate.html#wishes" class="nav-cta">Leave a Wish 💌</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -48,245 +47,168 @@
 <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Home</a>
     <div class="menu-divider"></div>
-    <a href="story.html">Story</a>
-    <div class="menu-divider"></div>
     <a href="memories.html" class="active">Memories</a>
+    <div class="menu-divider"></div>
+    <a href="wishes.html">Wishes</a>
+    <div class="menu-divider"></div>
+    <a href="gift.html">🎁 Gift</a>
+    <div class="menu-divider"></div>
+    <a href="music.html">🎵 Music</a>
     <div class="menu-divider"></div>
     <a href="celebrate.html">Celebrate</a>
 </div>
 
 <main>
-    <!-- ===== BIRTHDAY BANNER ===== -->
-    <div class="birthday-banner" id="birthdayBanner">
-        <h3>Happy Birthday Robert! 🎉</h3>
-        <p>Leave a wish, play a game, and light up the sky!</p>
-    </div>
-
-    <!-- ===== HERO ===== -->
+    <!-- HERO: Robert Mensah as subtle blurred background -->
     <section class="page-hero" id="memories-hero">
         <div class="page-hero-bg">
-            <img src="photo5.jpg" alt="Memories background" width="1920" height="1080">
+            <img src="ROBERTMENSAH.jpeg" alt="" aria-hidden="true" style="filter:blur(14px) brightness(0.28) saturate(1.1);transform:scale(1.15);">
         </div>
-        <h1>A LIFE IN <span class="gold">MOMENTS</span></h1>
-        <p>Memories that shaped the journey.</p>
+        <p class="kicker-script">Every face, every moment</p>
+        <h1>THE PEOPLE & THE <span class="gold-text">MOMENTS</span></h1>
+        <p>A life told through photographs.</p>
     </section>
 
-    <!-- ===== MEMORY GRID ===== -->
-    <section class="fade-in">
-        <div class="section-label">Moments</div>
-        <h2 class="section-title">A Life in Moments</h2>
-        <div class="section-divider"></div>
-        <div class="memory-grid">
-            <div class="memory-grid-item large" onclick="openLightbox(1)">
-                <img src="photo1.jpg" alt="Memory 1" width="400" height="300" loading="lazy">
-                <span class="mem-number">01</span>
-            </div>
-            <div class="memory-grid-item medium" onclick="openLightbox(2)">
-                <img src="photo2.jpg" alt="Memory 2" width="400" height="300" loading="lazy">
-                <span class="mem-number">02</span>
-            </div>
-            <div class="memory-grid-item small" onclick="openLightbox(3)">
-                <img src="photo3.jpg" alt="Memory 3" width="400" height="300" loading="lazy">
-                <span class="mem-number">03</span>
-            </div>
-            <div class="memory-grid-item tall" onclick="openLightbox(4)">
-                <img src="photo4.jpg" alt="Memory 4" width="400" height="300" loading="lazy">
-                <span class="mem-number">04</span>
-            </div>
-            <div class="memory-grid-item wide" onclick="openLightbox(5)">
-                <img src="photo5.jpg" alt="Memory 5" width="400" height="300" loading="lazy">
-                <span class="mem-number">05</span>
-            </div>
-            <div class="memory-grid-item large" onclick="openLightbox(6)">
-                <img src="photo6.jpg" alt="Memory 6" width="400" height="300" loading="lazy">
-                <span class="mem-number">06</span>
-            </div>
-            <div class="memory-grid-item medium" onclick="openLightbox(7)">
-                <img src="photo7.jpg" alt="Memory 7" width="400" height="300" loading="lazy">
-                <span class="mem-number">07</span>
-            </div>
+    <!-- FULL GALLERY — every photograph, filename-true names -->
+    <section class="fade-in light-pool">
+        <div class="garland" aria-hidden="true">
+            <span class="garland-flower">🌸</span><span class="garland-bulb"></span><span class="garland-flower">🌺</span><span class="garland-bulb"></span><span class="garland-flower">🌷</span>
+        </div>
+        <h2 class="section-title display-title">THE <span class="gold-text">GALLERY</span></h2>
+        <p style="max-width:640px;margin:0 auto 36px;color:var(--muted);">
+            Every photograph of Robert's journey — family, friends and moments. Tap any frame to view it full size.
+        </p>
+        <div class="gallery-grid">
+
+            <!-- Robert -->
+            <figure class="gold-frame gallery-item">
+                <img src="ROBERTMENSAH.jpeg" alt="Robert Mensah" loading="lazy" onclick="openLightbox(0)">
+                <figcaption><span class="script-accent">Robert Mensah</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="my picture.jpeg" alt="My Picture" loading="lazy" onclick="openLightbox(7)">
+                <figcaption><span class="script-accent">My Picture</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="my picture at home.jpeg" alt="My Picture at Home" loading="lazy" onclick="openLightbox(8)">
+                <figcaption><span class="script-accent">My Picture at Home</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="my picture 2025.jpg" alt="My Picture 2025" loading="lazy" onclick="openLightbox(9)">
+                <figcaption><span class="script-accent">My Picture 2025</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="my picture in april.jpg" alt="My Picture in April" loading="lazy" onclick="openLightbox(10)">
+                <figcaption><span class="script-accent">My Picture in April</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="my picture january 2026.jpg" alt="My Picture January 2026" loading="lazy" onclick="openLightbox(11)">
+                <figcaption><span class="script-accent">My Picture January 2026</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="my happy mode.jpg" alt="My Happy Mode" loading="lazy" onclick="openLightbox(12)">
+                <figcaption><span class="script-accent">My Happy Mode</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="MY marticulation.jpg" alt="My Matriculation" loading="lazy" onclick="openLightbox(13)">
+                <figcaption><span class="script-accent">My Matriculation</span></figcaption>
+            </figure>
+
+            <!-- Family -->
+            <figure class="gold-frame gallery-item">
+                <img src="MY LOVELY MOTHER .jpeg" alt="My Lovely Mother" loading="lazy" onclick="openLightbox(1)">
+                <figcaption><span class="script-accent">My Lovely Mother</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="mother.jpg" alt="My Mother" loading="lazy" onclick="openLightbox(2)">
+                <figcaption><span class="script-accent">My Mother</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="my mother and sister.jpeg" alt="My Mother and Sister" loading="lazy" onclick="openLightbox(3)">
+                <figcaption><span class="script-accent">My Mother and Sister</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="my sister.jpeg" alt="My Sister" loading="lazy" onclick="openLightbox(4)">
+                <figcaption><span class="script-accent">My Sister</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="my junior sister.jpeg" alt="My Junior Sister" loading="lazy" onclick="openLightbox(5)">
+                <figcaption><span class="script-accent">My Junior Sister</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="sam.jpeg" alt="Sam — Family Friend" loading="lazy" onclick="openLightbox(6)">
+                <figcaption><span class="script-accent">Sam — Family Friend</span></figcaption>
+            </figure>
+
+            <!-- Friends -->
+            <figure class="gold-frame gallery-item">
+                <img src="abulai my friend.jpeg" alt="Ebulai — My Friend" loading="lazy" onclick="openLightbox(14)">
+                <figcaption><span class="script-accent">Ebulai — My Friend</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="bright my friend.jpeg" alt="Bright — My Friend" loading="lazy" onclick="openLightbox(15)">
+                <figcaption><span class="script-accent">Bright — My Friend</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="daniel my friend.jpeg" alt="Daniel — My Friend" loading="lazy" onclick="openLightbox(16)">
+                <figcaption><span class="script-accent">Daniel — My Friend</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="ebenezer my friend.jpeg" alt="Ebenezer — My Friend" loading="lazy" onclick="openLightbox(17)">
+                <figcaption><span class="script-accent">Ebenezer — My Friend</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="LABISTER my friend.jpeg" alt="Labister — My Friend" loading="lazy" onclick="openLightbox(18)">
+                <figcaption><span class="script-accent">Labister — My Friend</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="mastoe my friend.jpeg" alt="Mastu — My Friend" loading="lazy" onclick="openLightbox(19)">
+                <figcaption><span class="script-accent">Mastu — My Friend</span></figcaption>
+            </figure>
+
         </div>
     </section>
 
-    <!-- ===== MEMORY STREAM ===== -->
+    <!-- MEMORY STREAM -->
     <section class="fade-in">
         <div class="section-label">On the Move</div>
         <h2 class="section-title">Memory Stream</h2>
         <div class="section-divider"></div>
         <div class="memories-stream">
             <div class="mem-stream-track" id="memStreamTrack">
-                <div class="mem-stream-item" onclick="openLightbox(1)"><img src="photo1.jpg" alt="Memory 1" width="300" height="240" loading="lazy"></div>
-                <div class="mem-stream-item" onclick="openLightbox(2)"><img src="mother.jpg" alt="My mother" width="300" height="240" loading="lazy"></div>
-                <div class="mem-stream-item" onclick="openLightbox(3)"><img src="photo3.jpg" alt="Memory 3" width="300" height="240" loading="lazy"></div>
-                <div class="mem-stream-item" onclick="openLightbox(5)"><img src="photo5.jpg" alt="Memory 5" width="300" height="240" loading="lazy"></div>
-                <div class="mem-stream-item" onclick="openLightbox(6)"><img src="photo6.jpg" alt="Memory 6" width="300" height="240" loading="lazy"></div>
-                <div class="mem-stream-item" onclick="openLightbox(7)"><img src="photo7.jpg" alt="Memory 7" width="300" height="240" loading="lazy"></div>
-                <div class="mem-stream-item" onclick="openLightbox(8)"><img src="my sister.jpeg" alt="My senior sister" width="300" height="240" loading="lazy"></div>
-                <div class="mem-stream-item" onclick="openLightbox(9)"><img src="my mother and sister.jpeg" alt="My mother and senior sister together" width="300" height="240" loading="lazy"></div>
-                <div class="mem-stream-item" onclick="openLightbox(10)"><img src="my picture.jpeg" alt="Robert" width="300" height="240" loading="lazy"></div>
-                <div class="mem-stream-item" onclick="openLightbox(11)"><img src="my junior sister.jpeg" alt="My junior sister" width="300" height="240" loading="lazy"></div>
-                <div class="mem-stream-item" onclick="openLightbox(12)"><img src="sam.jpeg" alt="Sam" width="300" height="240" loading="lazy"></div>
-                <div class="mem-stream-item" onclick="openLightbox(13)"><img src="my picture at home.jpeg" alt="Robert at home" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(0)"><img src="ROBERTMENSAH.jpeg" alt="Robert Mensah" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(1)"><img src="MY LOVELY MOTHER .jpeg" alt="My Lovely Mother" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(2)"><img src="mother.jpg" alt="My Mother" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(3)"><img src="my mother and sister.jpeg" alt="My Mother and Sister" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(4)"><img src="my sister.jpeg" alt="My Sister" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(5)"><img src="my junior sister.jpeg" alt="My Junior Sister" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(6)"><img src="sam.jpeg" alt="Sam — Family Friend" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(7)"><img src="my picture.jpeg" alt="My Picture" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(8)"><img src="my picture at home.jpeg" alt="My Picture at Home" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(9)"><img src="my picture 2025.jpg" alt="My Picture 2025" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(10)"><img src="my picture in april.jpg" alt="My Picture in April" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(11)"><img src="my picture january 2026.jpg" alt="My Picture January 2026" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(12)"><img src="my happy mode.jpg" alt="My Happy Mode" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(13)"><img src="MY marticulation.jpg" alt="My Matriculation" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(14)"><img src="abulai my friend.jpeg" alt="Ebulai — My Friend" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(15)"><img src="bright my friend.jpeg" alt="Bright — My Friend" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(16)"><img src="daniel my friend.jpeg" alt="Daniel — My Friend" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(17)"><img src="ebenezer my friend.jpeg" alt="Ebenezer — My Friend" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(18)"><img src="LABISTER my friend.jpeg" alt="Labister — My Friend" width="300" height="240" loading="lazy"></div>
+                <div class="mem-stream-item" onclick="openLightbox(19)"><img src="mastoe my friend.jpeg" alt="Mastu — My Friend" width="300" height="240" loading="lazy"></div>
             </div>
         </div>
-        <div class="stream-controls-fixed">
-            <button class="stream-control-btn" onclick="pauseStream()" aria-label="Pause stream">⏸️</button>
-            <button class="stream-control-btn" onclick="playStream()" aria-label="Play stream">▶️</button>
-        </div>
-    </section>
-
-    <!-- ===== FILM STRIP ===== -->
-    <section class="fade-in" style="padding-left:0;padding-right:0;">
-        <div class="section-label">Moment I Want to Remember</div>
-        <h2 class="section-title">Film Strip of Memories</h2>
-        <div class="section-divider"></div>
-        <div class="filmstrip">
-            <div class="filmstrip-track">
-
-
-                <div class="film-frame"><img src="photo1.jpg" alt="Frame 1" width="180" height="180" loading="lazy"></div>
-                <div class="film-frame"><img src="photo2.jpg" alt="Frame 2" width="180" height="180" loading="lazy"></div>
-                <div class="film-frame"><img src="photo3.jpg" alt="Frame 3" width="180" height="180" loading="lazy"></div>
-                <div class="film-frame"><img src="photo4.jpg" alt="Frame 4" width="180" height="180" loading="lazy"></div>
-                <div class="film-frame"><img src="photo5.jpg" alt="Frame 5" width="180" height="180" loading="lazy"></div>
-                <div class="film-frame"><img src="photo6.jpg" alt="Frame 6" width="180" height="180" loading="lazy"></div>
-                <div class="film-frame"><img src="photo7.jpg" alt="Frame 7" width="180" height="180" loading="lazy"></div>
-                <div class="film-frame"><img src="photo1.jpg" alt="Frame 8" width="180" height="180" loading="lazy"></div>
-                <div class="film-frame"><img src="photo2.jpg" alt="Frame 9" width="180" height="180" loading="lazy"></div>
-                <div class="film-frame"><img src="photo3.jpg" alt="Frame 10" width="180" height="180" loading="lazy"></div>
-                <div class="film-frame"><img src="photo4.jpg" alt="Frame 11" width="180" height="180" loading="lazy"></div>
-                <div class="film-frame"><img src="photo5.jpg" alt="Frame 12" width="180" height="180" loading="lazy"></div>
-            </div>
+        <div class="stream-controls-fixed" style="display:flex;justify-content:center;gap:12px;margin-top:16px;">
+            <button class="stream-control-btn" onclick="pauseStream()" aria-label="Pause stream" style="background:rgba(10,14,39,0.8);border:1px solid var(--glass-border);color:var(--gold);width:46px;height:46px;border-radius:50%;cursor:pointer;font-size:0.9rem;">⏸️</button>
+            <button class="stream-control-btn" onclick="playStream()" aria-label="Play stream" style="background:rgba(10,14,39,0.8);border:1px solid var(--glass-border);color:var(--gold);width:46px;height:46px;border-radius:50%;cursor:pointer;font-size:0.9rem;">▶️</button>
         </div>
     </section>
 
-    <!-- ===== FLOATING MEMORIES GRID ===== -->
-    <section class="fade-in">
-        <div class="section-label">Floating Memories</div>
-        <h2 class="section-title">Moments in the Air</h2>
-        <div class="section-divider"></div>
-        <div class="floating-grid">
-            <div class="floating-photo" onclick="openLightbox(1)">
-                <img src="mother.jpg" alt="My mother" width="400" height="300" loading="lazy">
-            </div>
-            <div class="floating-photo" onclick="openLightbox(5)">
-                <img src="my sister.jpeg" alt="My senior sister" width="400" height="300" loading="lazy">
-            </div>
-            <div class="floating-photo" onclick="openLightbox(6)">
-                <img src="my mother and sister.jpeg" alt="My mother and senior sister together" width="400" height="300" loading="lazy">
-            </div>
-            <div class="floating-photo" onclick="openLightbox(7)">
-                <img src="my picture.jpeg" alt="Robert" width="400" height="300" loading="lazy">
-            </div>
-            <div class="floating-photo" onclick="openLightbox(8)">
-                <img src="my junior sister.jpeg" alt="My junior sister" width="400" height="300" loading="lazy">
-            </div>
-            <div class="floating-photo" onclick="openLightbox(9)">
-                <img src="sam.jpeg" alt="Sam" width="400" height="300" loading="lazy">
-            </div>
-            <div class="floating-photo" onclick="openLightbox(10)">
-                <img src="my picture at home.jpeg" alt="Robert at home" width="400" height="300" loading="lazy">
-            </div>
-            <div class="floating-center-text">
-                <h3>Click a memory</h3>
-                <p>Each one is a piece of the story</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== POLAROIDS ===== -->
-    <section class="fade-in">
-        <div class="section-label">Polaroid Memories</div>
-        <h2 class="section-title">Snapshots</h2>
-        <div class="section-divider"></div>
-        <div class="polaroid-grid">
-            <div class="polaroid" onclick="openLightbox(1)"><img src="mother.jpg" alt="My mother" width="400" height="300" loading="lazy"><div class="polaroid-caption">My Mother</div></div>
-            <div class="polaroid" onclick="openLightbox(5)"><img src="my sister.jpeg" alt="My senior sister" width="400" height="300" loading="lazy"><div class="polaroid-caption">Senior Sister</div></div>
-            <div class="polaroid" onclick="openLightbox(6)"><img src="my mother and sister.jpeg" alt="My mother and senior sister together" width="400" height="300" loading="lazy"><div class="polaroid-caption">Mom & Sister</div></div>
-            <div class="polaroid" onclick="openLightbox(7)"><img src="my picture.jpeg" alt="Robert" width="400" height="300" loading="lazy"><div class="polaroid-caption">Robert</div></div>
-            <div class="polaroid" onclick="openLightbox(8)"><img src="my junior sister.jpeg" alt="My junior sister" width="400" height="300" loading="lazy"><div class="polaroid-caption">Junior Sister</div></div>
-            <div class="polaroid" onclick="openLightbox(9)"><img src="sam.jpeg" alt="Sam" width="400" height="300" loading="lazy"><div class="polaroid-caption">Sam</div></div>
-            <div class="polaroid" onclick="openLightbox(10)"><img src="my picture at home.jpeg" alt="Robert at home" width="400" height="300" loading="lazy"><div class="polaroid-caption">At Home</div></div>
-        </div>
-    </section>
-
-    <!-- ===== FRIENDS ===== -->
-    <section class="fade-in">
-        <div class="section-label">The People Beside Me</div>
-        <h2 class="section-title">Friends Along the Way</h2>
-        <div class="section-divider"></div>
-        <div class="friend-gallery">
-            <div class="friend-card" onclick="openLightbox(13)">
-                <img src="abulai my friend.jpeg" alt="Abulai, Robert's friend" width="400" height="300" loading="lazy">
-                <span>Abulai</span>
-            </div>
-            <div class="friend-card" onclick="openLightbox(14)">
-                <img src="bright my friend.jpeg" alt="Bright, Robert's friend" width="400" height="300" loading="lazy">
-                <span>Bright</span>
-            </div>
-            <div class="friend-card" onclick="openLightbox(15)">
-                <img src="daniel my friend.jpeg" alt="Daniel, Robert's friend" width="400" height="300" loading="lazy">
-                <span>Daniel</span>
-            </div>
-            <div class="friend-card" onclick="openLightbox(16)">
-                <img src="ebenezer my friend.jpeg" alt="Ebenezer, Robert's friend" width="400" height="300" loading="lazy">
-                <span>Ebenezer</span>
-            </div>
-            <div class="friend-card" onclick="openLightbox(17)">
-                <img src="mastoe my friend.jpeg" alt="Mastoe, Robert's friend" width="400" height="300" loading="lazy">
-                <span>Mastoe</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FUN FACTS ===== -->
-    <section class="fade-in">
-        <div class="section-label">Did You Know?</div>
-        <h2 class="section-title">Fun Facts About Robert</h2>
-        <div class="section-divider"></div>
-        <div class="fun-card">
-            <span class="fun-icon" id="funIcon">🎂</span>
-            <p class="fun-text" id="funText">Robert was born on August 24th in Ghana.</p>
-            <button class="fun-btn" onclick="nextFunFact()">🎲 Another Fact</button>
-        </div>
-    </section>
-
-    <!-- ===== REASONS TO CELEBRATE ===== -->
-    <section class="fade-in">
-        <div class="section-label">Reasons to Celebrate</div>
-        <h2 class="section-title">Today We Celebrate</h2>
-        <div class="section-divider"></div>
-        <div class="cards-grid">
-            <div class="info-card">
-                <span class="card-status">Achieved</span>
-                <span class="card-icon">🎓</span>
-                <h3>Family Moments</h3>
-                <p>The people who make every birthday warmer, every memory brighter, and every gathering feel like home.</p>
-                <span class="card-tag">Togetherness</span>
-            </div>
-            <div class="info-card">
-                <span class="card-status">Ongoing</span>
-                <span class="card-icon">🌟</span>
-                <h3>Good Friends</h3>
-                <p>The laughter, stories, and familiar faces that turn a birthday into a day worth remembering.</p>
-                <span class="card-tag">Friendship</span>
-            </div>
-            <div class="info-card">
-                <span class="card-status">Forever</span>
-                <span class="card-icon">❤️</span>
-                <h3>Family & Friends</h3>
-                <p>The people who show up, cheer loudly, and believe deeply. Today is as much theirs as it is Robert's.</p>
-                <span class="card-tag">Love</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== NEXT PAGE ===== -->
     <section class="fade-in" style="text-align:center;">
-        <p style="font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--muted);margin-bottom:25px;">
+        <p style="font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--muted);margin-bottom:20px;">
             Now it's your turn to be part of the celebration...
         </p>
-        <a href="celebrate.html" class="btn btn-gold">🎉 Join the Celebration →</a>
+        <a href="wishes.html" class="btn btn-gold">💌 Leave a Wish →</a>
     </section>
 </main>
 

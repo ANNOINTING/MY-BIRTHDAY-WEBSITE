@@ -1,5 +1,6 @@
 /* ============================================================
    ROBERT MENSAH'S BIRTHDAY CELEBRATION — Shared Scripts
+   Cinematic, Festive, Gift-Focused Experience
    ============================================================ */
 
 const CONFIG = {
@@ -51,6 +52,170 @@ const CONFIG = {
             }
         });
     }
+})();
+
+/* ---------- FESTIVE FAIRY LIGHTS ---------- */
+(function initFairyLights() {
+    const container = document.createElement('div');
+    container.className = 'fairy-lights-container';
+    const string = document.createElement('div');
+    string.className = 'fairy-light-string';
+    container.appendChild(string);
+    for (let i = 0; i < 10; i++) {
+        const bulb = document.createElement('div');
+        bulb.className = 'fairy-light';
+        container.appendChild(bulb);
+    }
+    document.body.appendChild(container);
+})();
+
+/* ---------- GIFT OVERLAY ---------- */
+function openGiftOverlay() {
+    const overlay = document.getElementById('giftOverlay');
+    if (overlay) overlay.classList.add('open');
+}
+function closeGiftOverlay() {
+    const overlay = document.getElementById('giftOverlay');
+    if (overlay) overlay.classList.remove('open');
+}
+window.openGiftOverlay = openGiftOverlay;
+window.closeGiftOverlay = closeGiftOverlay;
+
+/* ---------- MUSIC OVERLAY ---------- */
+function openMusicOverlay() {
+    const overlay = document.getElementById('musicOverlay');
+    if (overlay) overlay.classList.add('open');
+    const player = document.getElementById('musicPlayer');
+    if (player && !player.classList.contains('open')) {
+        try { window.openMusicPlayer(); } catch(e) {}
+    }
+}
+function closeMusicOverlay() {
+    const overlay = document.getElementById('musicOverlay');
+    if (overlay) overlay.classList.remove('open');
+}
+window.openMusicOverlay = openMusicOverlay;
+window.closeMusicOverlay = closeMusicOverlay;
+
+/* ---------- STADIUM PYROTECHNICS ---------- */
+function createPyro(x, y) {
+    let container = document.getElementById('pyroContainer');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'pyroContainer';
+        container.className = 'pyro-container';
+        document.body.appendChild(container);
+    }
+    // Flash
+    const flash = document.createElement('div');
+    flash.className = 'pyro-flash';
+    flash.style.left = (x - 100) + 'px';
+    flash.style.top = (y - 100) + 'px';
+    flash.style.width = '200px';
+    flash.style.height = '200px';
+    container.appendChild(flash);
+    setTimeout(() => flash.remove(), 700);
+    // Smoke
+    const smoke = document.createElement('div');
+    smoke.className = 'pyro-smoke';
+    smoke.style.left = (x - 40) + 'px';
+    smoke.style.top = (y - 40) + 'px';
+    smoke.style.width = '80px';
+    smoke.style.height = '80px';
+    container.appendChild(smoke);
+    setTimeout(() => smoke.remove(), 2200);
+    // Rays
+    for (let i = 0; i < 12; i++) {
+        const ray = document.createElement('div');
+        ray.className = 'pyro-ray';
+        const angle = (360 / 12) * i;
+        ray.style.left = x + 'px';
+        ray.style.top = y + 'px';
+        ray.style.width = (50 + Math.random() * 80) + 'px';
+        ray.style.transform = `rotate(${angle}deg)`;
+        ray.style.animationDelay = (Math.random() * 0.2) + 's';
+        container.appendChild(ray);
+        setTimeout(() => ray.remove(), 1000);
+    }
+    // Burst particles
+    const colors = ['#d4af37', '#f0d98c', '#ffffff', '#c98d98', '#ff6b6b', '#f1d27a', '#ff4757'];
+    for (let i = 0; i < 40; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'pyro-burst';
+        const angle = Math.random() * 360;
+        const dist = 80 + Math.random() * 150;
+        particle.style.setProperty('--px', Math.cos(angle * Math.PI / 180) * dist + 'px');
+        particle.style.setProperty('--py', Math.sin(angle * Math.PI / 180) * dist + 'px');
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+        particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        particle.style.animationDuration = (0.8 + Math.random() * 0.8) + 's';
+        particle.style.animationDelay = (Math.random() * 0.3) + 's';
+        container.appendChild(particle);
+        setTimeout(() => particle.remove(), 2000);
+    }
+    // Glitter
+    for (let i = 0; i < 20; i++) {
+        const glitter = document.createElement('div');
+        glitter.className = 'pyro-glitter';
+        const angle = Math.random() * 360;
+        const dist = 30 + Math.random() * 60;
+        glitter.style.setProperty('--gx', Math.cos(angle * Math.PI / 180) * dist + 'px');
+        glitter.style.setProperty('--gy', Math.sin(angle * Math.PI / 180) * dist + 'px');
+        glitter.style.left = x + 'px';
+        glitter.style.top = y + 'px';
+        glitter.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        glitter.style.animationDuration = (0.6 + Math.random() * 0.6) + 's';
+        container.appendChild(glitter);
+        setTimeout(() => glitter.remove(), 1500);
+    }
+}
+function stadiumCelebration() {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const positions = [
+        { x: w * 0.2, y: h * 0.2 },
+        { x: w * 0.5, y: h * 0.15 },
+        { x: w * 0.8, y: h * 0.25 },
+        { x: w * 0.3, y: h * 0.4 },
+        { x: w * 0.7, y: h * 0.35 },
+        { x: w * 0.5, y: h * 0.5 }
+    ];
+    positions.forEach((pos, i) => {
+        setTimeout(() => {
+            createPyro(pos.x, pos.y);
+            if (i === 0 || i === 3) createConfettiBurst(30);
+        }, i * 400);
+    });
+    setTimeout(() => {
+        for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+                createPyro(
+                    Math.random() * w * 0.6 + w * 0.2,
+                    Math.random() * h * 0.3 + h * 0.1
+                );
+            }, i * 200);
+        }
+        createConfettiBurst(80);
+        createBalloons(12);
+    }, 2800);
+}
+window.stadiumCelebration = stadiumCelebration;
+window.createPyro = createPyro;
+
+/* ---------- IMAGE LOADING ENHANCEMENTS ---------- */
+(function initImageLoading() {
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('load', function() {
+            this.style.opacity = '1';
+        });
+        if (img.complete) {
+            img.style.opacity = '1';
+        } else {
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 0.5s ease';
+        }
+    });
 })();
 
 /* ---------- EFFECTS ---------- */
@@ -235,24 +400,26 @@ if (cake) {
 
 /* ---------- LIGHTBOX ---------- */
 const photoArray = [
-    { src: 'photo1.jpg', caption: '\u2728 A Moment in Time' },
+    { src: 'ROBERTMENSAH.jpeg', caption: '\u2728 Robert Mensah' },
+    { src: 'MY LOVELY MOTHER .jpeg', caption: '\u2728 My Lovely Mother' },
     { src: 'mother.jpg', caption: '\u2728 My Mother' },
-    { src: 'photo3.jpg', caption: '\u2728 My Father — In Loving Memory' },
-    { src: 'photo4.jpg', caption: '\u2728 Precious Moments' },
-    { src: 'photo5.jpg', caption: '\u2728 Unforgettable' },
-    { src: 'photo6.jpg', caption: '\u2728 Beautiful Days' },
-    { src: 'photo7.jpg', caption: '\u2728 Cherished Memories' },
-    { src: 'my sister.jpeg', caption: '\u2728 My Senior Sister' },
-    { src: 'my mother and sister.jpeg', caption: '\u2728 Mom & Sister Together' },
-    { src: 'my picture.jpeg', caption: '\u2728 Robert — The Birthday Boy' },
+    { src: 'my mother and sister.jpeg', caption: '\u2728 My Mother and Sister' },
+    { src: 'my sister.jpeg', caption: '\u2728 My Sister' },
     { src: 'my junior sister.jpeg', caption: '\u2728 My Junior Sister' },
     { src: 'sam.jpeg', caption: '\u2728 Sam — Family Friend' },
-    { src: 'my picture at home.jpeg', caption: '\u2728 Robert at Home' },
-    { src: 'abulai my friend.jpeg', caption: '\u2728 Abulai — Friend' },
-    { src: 'bright my friend.jpeg', caption: '\u2728 Bright — Friend' },
-    { src: 'daniel my friend.jpeg', caption: '\u2728 Daniel — Friend' },
-    { src: 'ebenezer my friend.jpeg', caption: '\u2728 Ebenezer — Friend' },
-    { src: 'mastoe my friend.jpeg', caption: '\u2728 Mastoe — Friend' }
+    { src: 'my picture.jpeg', caption: '\u2728 My Picture' },
+    { src: 'my picture at home.jpeg', caption: '\u2728 My Picture at Home' },
+    { src: 'my picture 2025.jpg', caption: '\u2728 My Picture 2025' },
+    { src: 'my picture in april.jpg', caption: '\u2728 My Picture in April' },
+    { src: 'my picture january 2026.jpg', caption: '\u2728 My Picture January 2026' },
+    { src: 'my happy mode.jpg', caption: '\u2728 My Happy Mode' },
+    { src: 'MY marticulation.jpg', caption: '\u2728 My Matriculation' },
+    { src: 'abulai my friend.jpeg', caption: '\u2728 Ebulai — My Friend' },
+    { src: 'bright my friend.jpeg', caption: '\u2728 Bright — My Friend' },
+    { src: 'daniel my friend.jpeg', caption: '\u2728 Daniel — My Friend' },
+    { src: 'ebenezer my friend.jpeg', caption: '\u2728 Ebenezer — My Friend' },
+    { src: 'LABISTER my friend.jpeg', caption: '\u2728 Labister — My Friend' },
+    { src: 'mastoe my friend.jpeg', caption: '\u2728 Mastu — My Friend' }
 ];
 let currentPhoto = 0;
 
@@ -327,7 +494,6 @@ if (lightboxEl) {
     });
 }
 
-/* Give legacy photo tiles real keyboard activation without changing their layout. */
 document.querySelectorAll('[onclick*="openLightbox"]').forEach(tile => {
     tile.setAttribute('role', 'button');
     tile.setAttribute('tabindex', '0');
@@ -338,7 +504,7 @@ document.querySelectorAll('[onclick*="openLightbox"]').forEach(tile => {
     });
 });
 
-/* ---------- MEMORY STREAMS (legacy) ---------- */
+/* ---------- MEMORY STREAMS ---------- */
 function toggleStream(id, btn) {
     const track = document.getElementById(id);
     if (!track) return;
@@ -347,21 +513,15 @@ function toggleStream(id, btn) {
 }
 window.toggleStream = toggleStream;
 
-/* ---------- MEMORY STREAM (new auto-scrolling carousel) ---------- */
 const STREAM_TRACK = document.getElementById('memStreamTrack');
 function playStream() {
-    if (STREAM_TRACK) {
-        STREAM_TRACK.classList.remove('paused');
-    }
+    if (STREAM_TRACK) STREAM_TRACK.classList.remove('paused');
 }
 function pauseStream() {
-    if (STREAM_TRACK) {
-        STREAM_TRACK.classList.add('paused');
-    }
+    if (STREAM_TRACK) STREAM_TRACK.classList.add('paused');
 }
 window.playStream = playStream;
 window.pauseStream = pauseStream;
-
 
 /* ---------- FUN FACTS ---------- */
 const FUN_FACTS = [
@@ -450,7 +610,7 @@ function submitWish() {
 }
 window.submitWish = submitWish;
 
-/* ---------- WHATSAPP / COPY ---------- */
+/* ---------- WHATSAPP ---------- */
 function sendWhatsApp() {
     const input = document.getElementById('whatsappMessage');
     const message = (input && input.value.trim()) || 'Happy Birthday Robert! \u{1F389}\u{1F382}';
@@ -478,60 +638,16 @@ function flashCopy() {
 }
 window.copyPhoneNumber = copyPhoneNumber;
 
-/* ---------- BALLOON GAME ---------- */
-let balloonScore = 0, balloonTimer = 30, balloonInterval = null, balloonSpawn = null;
-function startBalloonGame() {
-    const area = document.getElementById('gameArea');
-    area.innerHTML = '';
-    balloonScore = 0;
-    balloonTimer = 30;
-    document.getElementById('balloonScore').textContent = '0';
-    document.getElementById('balloonTime').textContent = '30';
-    document.getElementById('balloonResult').textContent = '';
-    clearInterval(balloonInterval);
-    clearInterval(balloonSpawn);
-    balloonInterval = setInterval(() => {
-        balloonTimer--;
-        document.getElementById('balloonTime').textContent = balloonTimer;
-        if (balloonTimer <= 0) {
-            clearInterval(balloonInterval);
-            clearInterval(balloonSpawn);
-            document.getElementById('balloonResult').textContent = "Time's up! Final score: " + balloonScore + ' \u{1F388}';
-            if (balloonScore >= 10) createConfettiBurst(30);
-        }
-    }, 1000);
-    balloonSpawn = setInterval(spawnBalloon, 500);
-}
-function spawnBalloon() {
-    if (balloonTimer <= 0) return;
-    const area = document.getElementById('gameArea');
-    const colors = ['#d4af37', '#1a2a5c', '#b8962e', '#2a3a7c', '#f0d98c', '#ff6b6b', '#54a0ff', '#2ed573'];
-    const balloon = document.createElement('div');
-    balloon.className = 'game-balloon';
-    balloon.style.left = Math.random() * 90 + '%';
-    balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-    balloon.style.animationDuration = (Math.random() * 2 + 3) + 's';
-    balloon.textContent = '+1';
-    balloon.addEventListener('click', () => {
-        if (balloonTimer <= 0) return;
-        balloon.classList.add('smashed');
-        balloonScore++;
-        document.getElementById('balloonScore').textContent = balloonScore;
-        createEmojiBurst(balloon.offsetLeft + 20, balloon.offsetTop + 20);
-        setTimeout(() => balloon.remove(), 200);
-    });
-    area.appendChild(balloon);
-    setTimeout(() => balloon.remove(), 6000);
-}
-window.startBalloonGame = startBalloonGame;
-
-/* ---------- FINAL FIREWORKS ---------- */
+/* ---------- FINAL CELEBRATION ---------- */
 function finalCelebration() {
     for (let i = 0; i < 8; i++) setTimeout(createFirework, i * 300);
     createConfettiBurst(60);
     createBalloons(10);
     firePartyPoppers();
-    document.body.classList.add('finale-active');
+    // Stadium pyro
+    setTimeout(() => {
+        if (typeof stadiumCelebration === 'function') stadiumCelebration();
+    }, 500);
     showToast('\u{1F386} Here\u2019s to you, Robert! \u{1F382}');
 }
 window.finalCelebration = finalCelebration;
@@ -555,7 +671,6 @@ function firePartyPoppers() {
     });
 }
 
-// Animate final toasts when visible
 const finalToasts = document.getElementById('finalToasts');
 if (finalToasts) {
     const obs = new IntersectionObserver((entries) => {
@@ -571,7 +686,7 @@ if (finalToasts) {
     obs.observe(finalToasts);
 }
 
-/* ---------- SCROLL PROGRESS + BACK TO TOP ---------- */
+/* ---------- SCROLL PROGRESS ---------- */
 (function initScrollUI() {
     const bar = document.getElementById('scrollProgress');
     const top = document.getElementById('backToTop');
@@ -595,12 +710,13 @@ if (finalToasts) {
 /* ---------- BIRTHDAY DAY DETECTION ---------- */
 (function initBirthdayCheck() {
     const now = new Date();
-    const isBirthday = now.getMonth() === 7 && now.getDate() === 24; // August 24
+    const isBirthday = now.getMonth() === 7 && now.getDate() === 24;
     const banner = document.getElementById('birthdayBanner');
     if (isBirthday) {
         if (banner) banner.classList.add('show');
         setTimeout(() => createConfettiBurst(60), 1200);
         setTimeout(() => createBalloons(8), 2500);
+        setTimeout(() => { if (typeof stadiumCelebration === 'function') stadiumCelebration(); }, 3000);
     }
 })();
 
@@ -674,7 +790,7 @@ window.toggleLike = toggleLike;
 /* ---------- SONG REQUEST ---------- */
 function sendSongRequest() {
     const input = document.getElementById('songRequest');
-    const message = (input && input.value.trim()) || 'Hi Robert! 🎶 Please play this song for me: ';
+    const message = (input && input.value.trim()) || 'Hi Robert! \u{1F3B6} Please play this song for me: ';
     window.open('https://wa.me/' + CONFIG.whatsappNumber + '?text=' + encodeURIComponent(message), '_blank');
 }
 window.sendSongRequest = sendSongRequest;
@@ -692,19 +808,19 @@ function renderConfessions() {
     if (!wall) return;
     const confessions = getConfessions();
     if (confessions.length === 0) {
-        wall.innerHTML = '<p style="text-align:center;color:var(--muted-dark);grid-column:1/-1;padding:30px;">No confessions yet - be the first to spill the tea! 🫣</p>';
+        wall.innerHTML = '<p style="text-align:center;color:var(--muted-dark);grid-column:1/-1;padding:30px;">No confessions yet - be the first to spill the tea! \u{1F973}</p>';
         return;
     }
     wall.innerHTML = '';
     confessions.forEach((c, idx) => {
         const card = document.createElement('div');
         card.className = 'wish-card';
-        card.innerHTML = '<span class="wish-heart">🫣</span>' +
+        card.innerHTML = '<span class="wish-heart">\u{1F973}</span>' +
             '<div class="wish-category">' + escapeHtml(c.type) + '</div>' +
             '<div class="wish-message">' + escapeHtml(c.message) + '</div>' +
-            '<div class="wish-date">🤫 Anonymous • ' + escapeHtml(c.date) + '</div>' +
+            '<div class="wish-date">\u{1F92B} Anonymous \u2022 ' + escapeHtml(c.date) + '</div>' +
             '<div class="wish-reactions">' +
-            '<button class="reaction-btn deliver-btn" onclick="replyToConfession(' + idx + ', this)" aria-label="Reply to this confession via WhatsApp">💬 Reply</button>' +
+            '<button class="reaction-btn deliver-btn" onclick="replyToConfession(' + idx + ', this)" aria-label="Reply via WhatsApp">\u{1F4AC} Reply</button>' +
             '</div>';
         wall.appendChild(card);
     });
@@ -719,7 +835,7 @@ window.replyToConfession = replyToConfession;
 function submitConfession() {
     const type = document.getElementById('confessionType').value;
     const message = document.getElementById('confessionMessage').value.trim();
-    if (!message) { showToast('Please write a confession! 😅'); return; }
+    if (!message) { showToast('Please write a confession! \u{1F605}'); return; }
     const deliver = document.getElementById('confessionDeliver').checked;
     const confessions = getConfessions();
     confessions.unshift({

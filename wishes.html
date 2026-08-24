@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Leave a birthday wish for Robert Mensah.">
+    <meta name="theme-color" content="#0a0e27">
+    <title>Birthday Wishes — Robert Mensah</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💌</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@700;900&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#wishes">Skip to content</a>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="bg-container">
+    <div class="bg-gradient"></div>
+    <div class="bg-stars"></div>
+    <div class="bg-stars-gold"></div>
+    <div class="bg-aurora"></div>
+    <div class="bg-aurora-gold"></div>
+</div>
+<div class="fx-container" id="fxContainer"></div>
+
+<nav class="navbar">
+    <a href="index.html" class="nav-brand">
+        <span class="nav-monogram">RM</span>
+        <span class="nav-title">Robert <span>Mensah</span></span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="memories.html">Memories</a></li>
+        <li><a href="wishes.html" class="active">Wishes</a></li>
+        <li><a href="gift.html">🎁 Gift</a></li>
+        <li><a href="music.html">🎵 Music</a></li>
+        <li><a href="celebrate.html">Celebrate</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <div class="menu-divider"></div>
+    <a href="memories.html">Memories</a>
+    <div class="menu-divider"></div>
+    <a href="wishes.html" class="active">Wishes</a>
+    <div class="menu-divider"></div>
+    <a href="gift.html">🎁 Gift</a>
+    <div class="menu-divider"></div>
+    <a href="music.html">🎵 Music</a>
+    <div class="menu-divider"></div>
+    <a href="celebrate.html">Celebrate</a>
+</div>
+
+<main>
+    <section class="page-hero" id="wishes">
+        <div class="page-hero-bg">
+            <img src="ROBERTMENSAH.jpeg" alt="" aria-hidden="true" style="filter:blur(10px) brightness(0.25) saturate(1.1);transform:scale(1.12);">
+        </div>
+        <h1>BIRTHDAY <span class="gold">WISHES</span></h1>
+        <p>"Leave a piece of your heart for Robert's birthday."</p>
+    </section>
+
+    <section class="fade-in">
+        <div class="section-label">Leave a Wish</div>
+        <h2 class="section-title">Write Your Birthday Message</h2>
+        <div class="section-divider"></div>
+        <div class="wishes-container">
+            <div class="wish-form">
+                <h3>💌 Send Robert a Birthday Wish</h3>
+                <div class="form-group">
+                    <input type="text" class="form-input" id="wishName" placeholder="Your name (optional)" maxlength="40" aria-label="Your name">
+                </div>
+                <div class="form-group">
+                    <select class="form-select" id="wishCategory" aria-label="Relationship">
+                        <option value="">How do you know Robert? (optional)</option>
+                        <option value="Family">Family</option>
+                        <option value="Friend">Friend</option>
+                        <option value="Classmate">Classmate</option>
+                        <option value="School">School</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-textarea" id="wishMessage" placeholder="Write your birthday wish for Robert..." maxlength="300" aria-label="Your wish"></textarea>
+                </div>
+                <button class="wish-submit" onclick="submitWish()">💌 Send Wish</button>
+                <div class="wish-confirmation" id="wishConfirmation">Your wish has been added to Robert's birthday wall ❤️</div>
+            </div>
+            <div class="wishes-wall" id="wishesWall"></div>
+        </div>
+    </section>
+
+    <section class="fade-in" style="text-align:center;">
+        <p style="font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--muted);margin-bottom:20px;">
+            Want to do something more?
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+            <a href="gift.html" class="btn btn-gold">🎁 Send a Gift</a>
+            <a href="celebrate.html" class="btn btn-outline">🎉 Join the Celebration</a>
+        </div>
+    </section>
+</main>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+<footer class="footer">
+    <div class="monogram">RM</div>
+    <p>Made with ❤️ for Robert Mensah • 24 August 2026</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

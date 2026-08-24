@@ -2,39 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Robert Mensah's Birthday — A digital celebration of joy, memories, family, and the journey ahead.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Robert Mensah's Birthday — 24 August 2026. Join the celebration!">
     <meta name="theme-color" content="#0a0e27">
     <meta property="og:title" content="Robert Mensah — Birthday Celebration">
-    <meta property="og:description" content="A digital celebration of Robert Mensah's journey, memories, family, and the adventures ahead.">
+    <meta property="og:description" content="Join Robert Mensah's birthday celebration — memories, wishes, music and more.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="photo1.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Robert Mensah — Birthday Celebration">
-    <meta name="twitter:description" content="Step into Robert's birthday celebration. A cinematic experience of joy and memories.">
-    <title>Robert Mensah — Birthday Celebration</title>
+    <meta property="og:image" content="my picture.jpeg">
+    <title>Robert Mensah's Birthday 🎂</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@700;900&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <a class="skip-link" href="#countdown">Skip to content</a>
 
-<div class="welcome-screen" id="welcomeScreen" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
-    <div class="welcome-content">
-        <span class="welcome-kicker">A birthday story, made with love</span>
-        <h2 id="welcomeTitle">Welcome to Robert's celebration</h2>
-        <p>Step inside a collection of memories, milestones, and wishes for the year ahead.</p>
-        <button class="btn btn-gold" id="enterExperience">Enter the Experience <span aria-hidden="true">→</span></button>
-    </div>
-</div>
-
-<!-- Scroll Progress -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
-<!-- Animated Background -->
 <div class="bg-container">
     <div class="bg-gradient"></div>
     <div class="bg-stars"></div>
@@ -44,7 +30,13 @@
 </div>
 <div class="fx-container" id="fxContainer"></div>
 
-<!-- ===== NAVBAR ===== -->
+<!-- Christmas flowers decoration -->
+<div class="flower-decor flower-tl" aria-hidden="true">🌸</div>
+<div class="flower-decor flower-tr" aria-hidden="true">🌺</div>
+<div class="flower-decor flower-bl" aria-hidden="true">🌷</div>
+<div class="flower-decor flower-br" aria-hidden="true">🌹</div>
+<div class="petal-rain" id="petalRain" aria-hidden="true"></div>
+
 <nav class="navbar">
     <a href="index.html" class="nav-brand">
         <span class="nav-monogram">RM</span>
@@ -52,51 +44,62 @@
     </a>
     <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="story.html">Story</a></li>
         <li><a href="memories.html">Memories</a></li>
+        <li><a href="wishes.html">Wishes</a></li>
+        <li><a href="gift.html">🎁 Gift</a></li>
+        <li><a href="music.html">🎵 Music</a></li>
         <li><a href="celebrate.html">Celebrate</a></li>
-        <li><a href="celebrate.html#wishes" class="nav-cta">Leave a Wish 💌</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
     </button>
 </nav>
 
-<!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
     <a href="index.html" class="active">Home</a>
     <div class="menu-divider"></div>
-    <a href="story.html">Story</a>
-    <div class="menu-divider"></div>
     <a href="memories.html">Memories</a>
+    <div class="menu-divider"></div>
+    <a href="wishes.html">Wishes</a>
+    <div class="menu-divider"></div>
+    <a href="gift.html">🎁 Gift</a>
+    <div class="menu-divider"></div>
+    <a href="music.html">🎵 Music</a>
     <div class="menu-divider"></div>
     <a href="celebrate.html">Celebrate</a>
 </div>
 
 <main>
-    <!-- ===== BIRTHDAY BANNER (auto-shows on Aug 24) ===== -->
-    <div class="birthday-banner" id="birthdayBanner">
-        <h3>🎉 It's Robert's Birthday Today! 🎉</h3>
-        <p>Join the celebration — leave a wish, play a game, and light up the sky!</p>
-    </div>
-
-    <!-- ===== HERO ===== -->
-    <section class="page-hero" style="min-height:100vh;">
-        <div class="page-hero-bg">
-            <img src="my picture.jpeg" alt="Robert" width="1920" height="1080">
+    <!-- CINEMATIC HERO — Robert Mensah as the primary portrait -->
+    <section class="hero-cinematic" id="hero">
+        <div class="hero-bg-layer">
+            <img src="ROBERTMENSAH.jpeg" alt="Robert Mensah" class="hero-portrait">
         </div>
-        <h1>HAPPY BIRTHDAY<br><span class="gold">ROBERT MENSAH</span></h1>
-        <p>"Another year. Another chapter. Another reason to keep celebrating."</p>
-        <div style="display:flex;gap:15px;flex-wrap:wrap;justify-content:center;margin-top:35px;">
-            <a href="#countdown" class="btn btn-gold">🎂 Start the Celebration</a>
-            <a href="story.html" class="btn btn-outline">📖 My Story</a>
+        <div class="hero-overlay"></div>
+        <div class="hero-light-rays" aria-hidden="true"></div>
+        <div class="hero-bokeh" aria-hidden="true"></div>
+        <div class="hero-vignette" aria-hidden="true"></div>
+        <div class="hero-flower-row" aria-hidden="true">🌸 🌺 🌷 🌹 🌼</div>
+        <div class="hero-content">
+            <p class="kicker-script">It's a celebration</p>
+            <h1 class="display-title">ROBERT<br><span class="gold-text">MENSAH</span></h1>
+            <p class="hero-date">Saturday, 24 August 2026</p>
+            <p class="hero-intro">
+                Welcome to the birthday celebration of <strong>Robert Mensah</strong> —
+                a wonderful friend, brother and son. Explore his memories, leave a wish,
+                send a gift, and make his day special.
+            </p>
+            <div class="hero-cta">
+                <a href="#countdown" class="btn btn-gold">🎉 Join the Celebration</a>
+                <a href="#gallery" class="btn btn-outline">🖼️ View the Gallery</a>
+            </div>
         </div>
     </section>
 
-    <!-- ===== COUNTDOWN ===== -->
+    <!-- COUNTDOWN -->
     <section class="fade-in" id="countdown">
         <div class="section-label">The Countdown</div>
-        <h2 class="section-title">Counting Down to the Celebration</h2>
+        <h2 class="section-title">Counting Down to the Big Day</h2>
         <div class="section-divider"></div>
         <div class="countdown-container">
             <div class="countdown-box"><span class="countdown-number" id="days">00</span><span class="countdown-label">Days</span></div>
@@ -106,67 +109,198 @@
         </div>
     </section>
 
-    <!-- ===== CAKE ===== -->
-    <section class="cake-section fade-in">
-        <div class="section-label">Make a Wish</div>
-        <h2 class="section-title">Blow Out the Candles</h2>
-        <div class="section-divider"></div>
-        <div class="cake" id="cake" role="button" tabindex="0" aria-label="Activate the birthday cake">
-            <div class="cake-plate"></div>
-            <div class="cake-layer cake-bottom"></div>
-            <div class="cake-layer cake-middle"></div>
-            <div class="cake-layer cake-top"></div>
-            <div class="cake-frosting frosting-bottom"></div>
-            <div class="cake-frosting frosting-middle"></div>
-            <div class="cake-frosting frosting-top"></div>
-            <div class="candle" onclick="blowCandle(this)"><div class="flame"></div></div>
-            <div class="candle" onclick="blowCandle(this)"><div class="flame"></div></div>
-            <div class="candle" onclick="blowCandle(this)"><div class="flame"></div></div>
-            <div class="candle" onclick="blowCandle(this)"><div class="flame"></div></div>
-            <div class="candle" onclick="blowCandle(this)"><div class="flame"></div></div>
+    <!-- A LETTER FROM MY HEART — Robert's personal birthday message -->
+    <section class="heart-letter-section fade-in" id="letter">
+        <div class="heart-letter-glow" aria-hidden="true"></div>
+        <div class="heart-letter-candle" aria-hidden="true">🕯️</div>
+        <p class="kicker-script">A letter from my heart</p>
+        <h2 class="section-title display-title">24TH AUGUST — <span class="gold-text">MY BIRTHDAY</span> 🎂❤️</h2>
+
+        <div class="heart-letter">
+            <p class="heart-letter-open">
+                Today, I don't just celebrate another year of my life;
+                <em>I celebrate God's faithfulness.</em>
+            </p>
+
+            <p>
+                This year has been one of the hardest chapters of my life.
+                I lost my father in June, and there are moments when I still struggle
+                to believe he's really gone. Losing him has changed me
+                in ways words cannot fully explain.
+            </p>
+
+            <p class="heart-letter-faith">
+                But somehow, through the tears, the silence, the questions, and the pain,
+                <strong>God has kept me.</strong> 🙏🏾
+            </p>
+
+            <div class="heart-letter-gratitude">
+                <span>Today, I choose gratitude.</span>
+                <span>Grateful for life.</span>
+                <span>Grateful for my family.</span>
+                <span>Grateful for the people who have stood by me.</span>
+                <span>Grateful for every lesson this year has taught me.</span>
+                <span>And above all, grateful to God for giving me another year.</span>
+            </div>
+
+            <p class="heart-letter-dad">
+                Dad, I wish you were here to see me celebrate this day. ❤️🕊️<br>
+                But I believe your love, your memories, and everything you taught me
+                will always be a part of who I am.
+            </p>
+
+            <p class="heart-letter-cheer">Happy birthday to me. 🎂🥂</p>
+
+            <p>
+                May this new chapter bring healing, wisdom, purpose, strength,
+                and greater blessings.
+            </p>
+
+            <p class="heart-letter-close">Thank You, Lord, for another year. 🙏🏾❤️</p>
+
+            <div class="heart-letter-divider" aria-hidden="true">✦ &nbsp;🕊️&nbsp; ✦</div>
+
+            <p class="heart-letter-open">
+                Today is my birthday… but my heart is carrying a lot. 🥺❤️
+            </p>
+
+            <p>
+                I woke up today with a smile, but also with memories.
+            </p>
+
+            <p>
+                This is my first birthday without my father. I lost him in June,
+                and sometimes it still doesn't feel real. There are moments I wish I could
+                hear his voice, see his smile, or simply have him here to say,
+                <em>"Happy birthday, son."</em> 🕊️
+            </p>
+
+            <p>
+                Losing him has reminded me just how fragile and precious life truly is.
+            </p>
+
+            <p>So today, I won't take this birthday for granted.</p>
+
+            <div class="heart-letter-gratitude">
+                <span>I am grateful for the breath in my lungs.</span>
+                <span>Grateful that God carried me through the darkest moments.</span>
+                <span>Grateful that despite everything I've lost, I am still here.</span>
+            </div>
+
+            <p class="heart-letter-faith">
+                I may have lost people I love,
+                but <strong>I have not lost my faith.</strong> 🙏🏾
+            </p>
+
+            <p>
+                Lord, thank You for allowing me to see another 24th of August.
+                Thank You for keeping me when I didn't even have the strength to keep myself.
+            </p>
+
+            <p class="heart-letter-dad">
+                Dad, wherever you are, I hope you would be proud
+                of the person I'm becoming. ❤️🕊️
+            </p>
+
+            <p class="heart-letter-cheer">Happy birthday to me. 🎂❤️</p>
+
+            <p>
+                This new year of my life, I pray for peace, purpose, strength, success,
+                and a heart that never forgets where God brought me from.
+            </p>
+
+            <p class="heart-letter-final">
+                Another year. Another chapter.<br>
+                <span class="script-accent">Another reason to thank God.</span> 🙏🏾✨
+            </p>
         </div>
-        <p class="cake-message">Click the candles to blow them out. Make a wish! 🕯️</p>
     </section>
 
-    <!-- ===== QUOTES ===== -->
-    <section class="fade-in">
-        <div class="section-label">Words to Live By</div>
-        <h2 class="section-title">Inspiration</h2>
-        <div class="section-divider"></div>
-        <div class="quote-rotator">
-            <p class="quote-text" id="quoteText"></p>
-            <span class="quote-author" id="quoteAuthor"></span>
-            <div class="quote-dots" id="quoteDots"></div>
+    <!-- CELEBRATION GALLERY (named after each photograph) -->
+    <section class="fade-in light-pool" id="gallery">
+        <div class="garland" aria-hidden="true">
+            <span class="garland-flower">🌸</span><span class="garland-bulb"></span><span class="garland-flower">🌺</span><span class="garland-bulb"></span><span class="garland-flower">🌷</span>
+        </div>
+        <p class="kicker-script">Moments worth framing</p>
+        <h2 class="section-title display-title">THE <span class="gold-text">GALLERY</span></h2>
+        <p style="max-width:640px;margin:0 auto 36px;color:var(--muted);">
+            Real photographs from Robert's life. Click any frame to view it full size.
+        </p>
+        <div class="gallery-grid">
+            <figure class="gold-frame gallery-item">
+                <img src="my picture 2025.jpg" alt="My Picture 2025 — Robert Mensah" loading="lazy" onclick="openFlyer(this.src)">
+                <figcaption><span class="script-accent">My Picture 2025</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="my happy mode.jpg" alt="My Happy Mode — Robert Mensah" loading="lazy" onclick="openFlyer(this.src)">
+                <figcaption><span class="script-accent">My Happy Mode</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="MY marticulation.jpg" alt="My Matriculation — Robert Mensah" loading="lazy" onclick="openFlyer(this.src)">
+                <figcaption><span class="script-accent">My Matriculation</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="my picture in april.jpg" alt="My Picture in April — Robert Mensah" loading="lazy" onclick="openFlyer(this.src)">
+                <figcaption><span class="script-accent">My Picture in April</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="my picture january 2026.jpg" alt="My Picture January 2026 — Robert Mensah" loading="lazy" onclick="openFlyer(this.src)">
+                <figcaption><span class="script-accent">My Picture January 2026</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="sam.jpeg" alt="Sam — Family Friend" loading="lazy" onclick="openFlyer(this.src)">
+                <figcaption><span class="script-accent">Sam — Family Friend</span></figcaption>
+            </figure>
         </div>
     </section>
 
-    <!-- ===== QUICK LINKS ===== -->
+    <!-- MARQUEE STRIP -->
+    <div class="marquee-strip" aria-hidden="true">
+        <div class="marquee-track">
+            <span>HAPPY BIRTHDAY ✦ ROBERT MENSAH ✦ 24 AUGUST 2026 ✦ HAPPY BIRTHDAY ✦ ROBERT MENSAH ✦ 24 AUGUST 2026 ✦&nbsp;</span>
+            <span>HAPPY BIRTHDAY ✦ ROBERT MENSAH ✦ 24 AUGUST 2026 ✦ HAPPY BIRTHDAY ✦ ROBERT MENSAH ✦ 24 AUGUST 2026 ✦&nbsp;</span>
+        </div>
+    </div>
+
+    <!-- QUICK LINKS -->
     <section class="fade-in">
         <div class="section-label">Explore</div>
         <h2 class="section-title">Where Would You Like to Go?</h2>
         <div class="section-divider"></div>
-        <div class="cards-grid">
-            <a href="story.html" class="info-card" style="text-decoration:none;">
-                <span class="card-icon">📖</span>
-                <h3>My Story</h3>
-                <p>The chapters of the journey — from the beginning to this milestone.</p>
-                <span class="card-tag">Read More →</span>
-            </a>
+        <div class="cards-grid" style="max-width:900px;">
             <a href="memories.html" class="info-card" style="text-decoration:none;">
                 <span class="card-icon">📸</span>
                 <h3>Memories</h3>
-                <p>Photo streams, film strips, polaroids and fun facts.</p>
+                <p>Photos of family and friends through the years.</p>
                 <span class="card-tag">View Gallery →</span>
+            </a>
+            <a href="wishes.html" class="info-card" style="text-decoration:none;">
+                <span class="card-icon">💌</span>
+                <h3>Wishes</h3>
+                <p>Leave a birthday wish on the public wall.</p>
+                <span class="card-tag">Write a Wish →</span>
+            </a>
+            <a href="gift.html" class="info-card" style="text-decoration:none;">
+                <span class="card-icon">🎁</span>
+                <h3>Send a Gift</h3>
+                <p>Mobile Money, WhatsApp message or a song request.</p>
+                <span class="card-tag">Send Now →</span>
             </a>
             <a href="celebrate.html" class="info-card" style="text-decoration:none;">
                 <span class="card-icon">🎉</span>
                 <h3>Celebrate</h3>
-                <p>Leave a wish, send a gift, play a game and light up the sky.</p>
+                <p>Games, fireworks and the big celebration page.</p>
                 <span class="card-tag">Join In →</span>
             </a>
         </div>
     </section>
 </main>
+
+<!-- Flyer lightbox -->
+<div class="flyer-lightbox" id="flyerLightbox" onclick="closeFlyer()" role="dialog" aria-modal="true" aria-label="Flyer preview">
+    <button class="flyer-lightbox-close" aria-label="Close">✕</button>
+    <img src="" alt="Birthday flyer full size" id="flyerLightboxImg">
+</div>
 
 <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 <button class="music-btn" id="musicBtn" title="Toggle Music">🎵</button>
@@ -178,5 +312,35 @@
 
 <script src="js/main.js"></script>
 <script src="js/music-player.js"></script>
+<script>
+/* Falling petals */
+(function () {
+    const rain = document.getElementById('petalRain');
+    const petals = ['🌸', '🌺', '🌷', '🌹', '🌼'];
+    if (!rain) return;
+    setInterval(() => {
+        if (document.hidden || rain.children.length > 18) return;
+        const p = document.createElement('span');
+        p.className = 'petal';
+        p.textContent = petals[Math.floor(Math.random() * petals.length)];
+        p.style.left = Math.random() * 100 + 'vw';
+        p.style.animationDuration = (7 + Math.random() * 6) + 's';
+        p.style.fontSize = (14 + Math.random() * 14) + 'px';
+        rain.appendChild(p);
+        setTimeout(() => p.remove(), 14000);
+    }, 1200);
+})();
+
+/* Flyer lightbox */
+function openFlyer(src) {
+    const lb = document.getElementById('flyerLightbox');
+    document.getElementById('flyerLightboxImg').src = src;
+    lb.classList.add('open');
+}
+function closeFlyer() {
+    document.getElementById('flyerLightbox').classList.remove('open');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeFlyer(); });
+</script>
 </body>
 </html>

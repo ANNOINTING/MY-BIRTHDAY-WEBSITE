@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Send a birthday gift to Robert Mensah.">
+    <meta name="theme-color" content="#0a0e27">
+    <title>Send a Gift — Robert Mensah</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@700;900&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#gift">Skip to content</a>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="bg-container">
+    <div class="bg-gradient"></div>
+    <div class="bg-stars"></div>
+    <div class="bg-stars-gold"></div>
+    <div class="bg-aurora"></div>
+    <div class="bg-aurora-gold"></div>
+</div>
+<div class="fx-container" id="fxContainer"></div>
+
+<nav class="navbar">
+    <a href="index.html" class="nav-brand">
+        <span class="nav-monogram">RM</span>
+        <span class="nav-title">Robert <span>Mensah</span></span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="memories.html">Memories</a></li>
+        <li><a href="wishes.html">Wishes</a></li>
+        <li><a href="gift.html" class="active">🎁 Gift</a></li>
+        <li><a href="music.html">🎵 Music</a></li>
+        <li><a href="celebrate.html">Celebrate</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <div class="menu-divider"></div>
+    <a href="memories.html">Memories</a>
+    <div class="menu-divider"></div>
+    <a href="wishes.html">Wishes</a>
+    <div class="menu-divider"></div>
+    <a href="gift.html" class="active">🎁 Gift</a>
+    <div class="menu-divider"></div>
+    <a href="music.html">🎵 Music</a>
+    <div class="menu-divider"></div>
+    <a href="celebrate.html">Celebrate</a>
+</div>
+
+<main>
+    <section class="page-hero" id="gift">
+        <div class="page-hero-bg">
+            <img src="ROBERTMENSAH.jpeg" alt="" aria-hidden="true" style="filter:blur(8px) brightness(0.3) saturate(1.15);transform:scale(1.1) translateX(-6%);">
+        </div>
+        <h1>SEND A <span class="gold">GIFT</span></h1>
+        <p>"Make Robert's birthday unforgettable."</p>
+    </section>
+
+    <section class="fade-in">
+        <div class="section-label">Birthday Gift</div>
+        <h2 class="section-title">How Would You Like to Celebrate?</h2>
+        <div class="section-divider"></div>
+        
+        <div class="panel" style="margin-bottom:24px;">
+            <span class="panel-icon">💰</span>
+            <h3>Send Money via Mobile Money</h3>
+            <p>Send a gift directly to Robert's mobile money account.</p>
+            <div class="phone-number-box" onclick="copyPhoneNumber()" title="Click to copy">
+                <span class="phone-number" id="momoNumber">+233 53 387 4270</span>
+                <button class="copy-btn" id="copyBtn">📋 Copy</button>
+            </div>
+            <p class="mobile-money-note">
+                Works with <span>MTN MoMo</span> • <span>Vodafone Cash</span> • <span>AirtelTigo Money</span>
+            </p>
+        </div>
+
+        <div class="panel" style="margin-bottom:24px;">
+            <span class="panel-icon">💬</span>
+            <h3>Send a WhatsApp Message</h3>
+            <p>Send a personal birthday message straight to Robert's WhatsApp.</p>
+            <input type="text" class="whatsapp-message-input" id="whatsappMessage" value="Happy Birthday Robert! 🎉🎂" maxlength="200" aria-label="WhatsApp message">
+            <button class="whatsapp-btn" onclick="sendWhatsApp()">
+                <span>💬</span> Send via WhatsApp
+            </button>
+        </div>
+
+        <div class="panel" style="margin-bottom:24px;">
+            <span class="panel-icon">💌</span>
+            <h3>Leave a Birthday Wish</h3>
+            <p>Post a public birthday wish on the celebration wall.</p>
+            <a href="wishes.html" class="btn btn-gold">💌 Write a Wish</a>
+        </div>
+
+        <div class="panel">
+            <span class="panel-icon">🎶</span>
+            <h3>Request a Song</h3>
+            <p>Dedicate a song for Robert's celebration playlist.</p>
+            <input type="text" class="whatsapp-message-input" id="songRequest" value="Hi Robert! 🎶 Please play this song for me: " maxlength="200" aria-label="Song request">
+            <button class="whatsapp-btn" onclick="sendSongRequest()">
+                <span>🎶</span> Send Song Request
+            </button>
+        </div>
+    </section>
+
+    <section class="fade-in" style="text-align:center;">
+        <a href="celebrate.html" class="btn btn-gold">🎉 Join the Celebration →</a>
+    </section>
+</main>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+<footer class="footer">
+    <div class="monogram">RM</div>
+    <p>Made with ❤️ for Robert Mensah • 24 August 2026</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
