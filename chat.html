@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Live chat — celebrate Robert Mensah's birthday together in real time.">
+    <meta name="theme-color" content="#0a0e27">
+    <title>Live Chat — Robert Mensah</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@700;900&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#chat">Skip to content</a>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="bg-container">
+    <div class="bg-gradient"></div>
+    <div class="bg-stars"></div>
+    <div class="bg-stars-gold"></div>
+    <div class="bg-aurora"></div>
+    <div class="bg-aurora-gold"></div>
+</div>
+<div class="fx-container" id="fxContainer"></div>
+
+<nav class="navbar">
+    <a href="index.html" class="nav-brand">
+        <span class="nav-monogram">RM</span>
+        <span class="nav-title">Robert <span>Mensah</span></span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="memories.html">Memories</a></li>
+        <li><a href="wishes.html">Wishes</a></li>
+        <li><a href="chat.html" class="active">💬 Chat</a></li>
+        <li><a href="gift.html">🎁 Gift</a></li>
+        <li><a href="music.html">🎵 Music</a></li>
+        <li><a href="celebrate.html">Celebrate</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <div class="menu-divider"></div>
+    <a href="memories.html">Memories</a>
+    <div class="menu-divider"></div>
+    <a href="wishes.html">Wishes</a>
+    <div class="menu-divider"></div>
+    <a href="chat.html" class="active">💬 Chat</a>
+    <div class="menu-divider"></div>
+    <a href="gift.html">🎁 Gift</a>
+    <div class="menu-divider"></div>
+    <a href="music.html">🎵 Music</a>
+    <div class="menu-divider"></div>
+    <a href="celebrate.html">Celebrate</a>
+</div>
+
+<main>
+    <!-- LIVE CHAT HERO -->
+    <section class="hero-cinematic" id="chat">
+        <div class="hero-bg-layer">
+            <img src="ROBERTMENSAH.jpeg" alt="Robert Mensah" class="hero-portrait">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-light-rays" aria-hidden="true"></div>
+        <div class="hero-bokeh" aria-hidden="true"></div>
+        <div class="hero-vignette" aria-hidden="true"></div>
+        <div class="hero-flower-row" aria-hidden="true">🌸 🌺 🌷 🌹 🌼</div>
+        <div class="hero-content">
+            <p class="kicker-script">Celebrate together</p>
+            <h1 class="display-title">LIVE<br><span class="gold-text">CHAT</span></h1>
+            <p class="hero-date">Saturday, 24 August 2026</p>
+            <p class="hero-intro">
+                Chat live with friends and family celebrating Robert's birthday.
+                Messages appear instantly for everyone. Say hello, share a memory, or just send love! 💛
+            </p>
+            <div class="hero-cta">
+                <a href="#chat-form" class="btn btn-gold">💬 Join the Conversation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE STATUS INDICATOR -->
+    <section class="fade-in" style="text-align:center; padding-top:16px;">
+        <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;">
+            <span id="liveStatusDot" class="live-status" aria-label="Live status"></span>
+            <span style="color:var(--muted);font-size:0.9rem;">Live mode: <strong id="liveModeLabel">Local sync</strong></span>
+        </div>
+    </section>
+
+    <!-- CHAT AREA -->
+    <section class="fade-in" id="chat-form">
+        <div class="section-label">Live Conversation</div>
+        <h2 class="section-title">💬 Chat with Everyone</h2>
+        <div class="section-divider"></div>
+
+        <div class="chat-panel">
+            <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-label="Chat messages">
+                <div class="chat-empty">Connecting… <span class="spinner">⟳</span></div>
+            </div>
+
+            <form class="chat-form" id="chatForm" autocomplete="off">
+                <div class="chat-form-row">
+                    <input type="text" class="chat-name-input" id="chatName" placeholder="Your name" maxlength="30" aria-label="Your name" required>
+                    <input type="text" class="chat-text-input" id="chatText" placeholder="Type a message…" maxlength="300" aria-label="Your message" required>
+                </div>
+                <button type="submit" class="btn btn-gold chat-submit">💬 Send</button>
+            </form>
+        </div>
+
+        <div class="chat-info">
+            <p>Messages appear instantly for everyone. Your name is saved locally so you only type it once.</p>
+            <p class="chat-hint">💡 Optional: Add Firebase config to js/chat.js for cross-device live sync worldwide.</p>
+        </div>
+    </section>
+
+    <!-- LIVE WISHES STREAM -->
+    <section class="fade-in" id="live-wishes">
+        <div class="section-label">Live Wishes</div>
+        <h2 class="section-title">💌 Live Birthday Wishes</h2>
+        <div class="section-divider"></div>
+
+        <div class="wishes-live-panel">
+            <div class="wishes-live-wall" id="liveWishesWall">
+                <div class="chat-empty">Loading wishes… <span class="spinner">⟳</span></div>
+            </div>
+
+            <form class="wish-form" id="wishFormLive" autocomplete="off">
+                <div class="form-group">
+                    <input type="text" class="form-input" id="wishNameLive" placeholder="Your name (optional)" maxlength="40" aria-label="Your name">
+                </div>
+                <div class="form-group">
+                    <select class="form-select" id="wishCategoryLive" aria-label="Relationship">
+                        <option value="">How do you know Robert? (optional)</option>
+                        <option value="Family">Family</option>
+                        <option value="Friend">Friend</option>
+                        <option value="Classmate">Classmate</option>
+                        <option value="School">School</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-textarea" id="wishMessageLive" placeholder="Write your birthday wish for Robert..." maxlength="300" aria-label="Your wish" required></textarea>
+                </div>
+                <button type="submit" class="wish-submit" id="wishSubmitLive">💌 Send Wish</button>
+                <div class="wish-confirmation" id="wishConfirmationLive">Your wish has been added to Robert's birthday wall ❤️</div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+<button class="music-btn" id="musicBtn" title="Toggle Music">🎵</button>
+
+<footer class="footer">
+    <div class="monogram">RM</div>
+    <p>Made with ❤️ for Robert Mensah • 24 August 2026</p>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/music-player.js"></script>
+<script src="js/chat.js"></script>
+</body>
+</html>
