@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Robert Mensah's Birthday — 24 August 2026. Join the celebration!">
+    <meta name="description" content="Robert Mensah's Birthday — 24 August 2026. Celebrate with memories, wishes, music, and gifts!">
     <meta name="theme-color" content="#0a0e27">
     <meta property="og:title" content="Robert Mensah — Birthday Celebration">
     <meta property="og:description" content="Join Robert Mensah's birthday celebration — memories, wishes, music and more.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="my picture.jpeg">
+    <meta property="og:image" content="ROBERTMENSAH.jpeg">
     <title>Robert Mensah's Birthday 🎂</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,6 +38,7 @@
 <div class="flower-decor flower-br" aria-hidden="true">🌹</div>
 <div class="petal-rain" id="petalRain" aria-hidden="true"></div>
 
+<!-- ===== NAVBAR ===== -->
 <nav class="navbar">
     <a href="index.html" class="nav-brand">
         <span class="nav-monogram">RM</span>
@@ -47,7 +48,8 @@
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="memories.html">Memories</a></li>
         <li><a href="wishes.html">Wishes</a></li>
-        <li><a href="gift.html">🎁 Gift</a></li>
+        <li><a href="story.html">Story</a></li>
+        <li><a href="gift.html" class="nav-cta">🎁 Gift</a></li>
         <li><a href="music.html">🎵 Music</a></li>
         <li><a href="celebrate.html">Celebrate</a></li>
     </ul>
@@ -63,6 +65,8 @@
     <div class="menu-divider"></div>
     <a href="wishes.html">Wishes</a>
     <div class="menu-divider"></div>
+    <a href="story.html">Story</a>
+    <div class="menu-divider"></div>
     <a href="gift.html">🎁 Gift</a>
     <div class="menu-divider"></div>
     <a href="music.html">🎵 Music</a>
@@ -71,7 +75,74 @@
 </div>
 
 <main>
-    <!-- CINEMATIC HERO — Robert Mensah as the primary portrait -->
+    <!-- ===== WELCOME OVERLAY ===== -->
+    <section class="welcome-section fade-in" id="welcome">
+        <div class="heart-letter-glow" aria-hidden="true"></div>
+        <div class="heart-letter-candle" aria-hidden="true">🕯️</div>
+        <div class="welcome-content">
+            <p class="kicker-script">A letter from my heart</p>
+            <h2 class="section-title display-title">WELCOME TO <span class="gold-text">MY BIRTHDAY</span> 🎂❤️</h2>
+            <div class="welcome-letter">
+                <p class="heart-letter-open">
+                    Today, I don't just celebrate another year of my life;
+                    <em>I celebrate God's faithfulness.</em>
+                </p>
+                <p>
+                    This year has been one of the hardest chapters of my life.
+                    I lost my father in June, and there are moments when I still struggle
+                    to believe he's really gone. Losing him has changed me
+                    in ways words cannot fully explain.
+                </p>
+                <p class="heart-letter-faith">
+                    But somehow, through the tears, the silence, the questions, and the pain,
+                    <strong>God has kept me.</strong> 🙏🏾
+                </p>
+                <div class="heart-letter-gratitude">
+                    <span>Today, I choose gratitude.</span>
+                    <span>Grateful for life.</span>
+                    <span>Grateful for my family.</span>
+                    <span>Grateful for the people who have stood by me.</span>
+                    <span>And above all, grateful to God for giving me another year.</span>
+                </div>
+                <p class="heart-letter-dad">
+                    Dad, I wish you were here to see me celebrate this day. ❤️🕊️
+                </p>
+                <p class="heart-letter-cheer">Happy birthday to me. 🎂🥂</p>
+                <p>
+                    May this new chapter bring healing, wisdom, purpose, strength,
+                    and greater blessings.
+                </p>
+                <p class="heart-letter-close">Thank You, Lord, for another year. 🙏🏾❤️</p>
+                <div class="heart-letter-divider" aria-hidden="true">✦ &nbsp;🕊️&nbsp; ✦</div>
+                <p class="heart-letter-open">
+                    Today is my birthday… but my heart is carrying a lot. 🥺❤️
+                </p>
+                <p>
+                    This is my first birthday without my father. I lost him in June,
+                    and sometimes it still doesn't feel real. There are moments I wish I could
+                    hear his voice, see his smile, or simply have him here to say,
+                    <em>"Happy birthday, son."</em> 🕊️
+                </p>
+                <p>
+                    Losing him has reminded me just how fragile and precious life truly is.
+                </p>
+                <p class="heart-letter-faith">
+                    I may have lost people I love,
+                    but <strong>I have not lost my faith.</strong> 🙏🏾
+                </p>
+                <p class="heart-letter-dad">
+                    Dad, wherever you are, I hope you would be proud
+                    of the person I'm becoming. ❤️🕊️
+                </p>
+                <p class="heart-letter-final">
+                    Another year. Another chapter.<br>
+                    <span class="script-accent">Another reason to thank God.</span> 🙏🏾✨
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CINEMATIC HERO ===== -->
     <section class="hero-cinematic" id="hero">
         <div class="hero-bg-layer">
             <img src="ROBERTMENSAH.jpeg" alt="Robert Mensah" class="hero-portrait">
@@ -92,12 +163,12 @@
             </p>
             <div class="hero-cta">
                 <a href="#countdown" class="btn btn-gold">🎉 Join the Celebration</a>
-                <a href="#gallery" class="btn btn-outline">🖼️ View the Gallery</a>
+                <a href="#gift-invite" class="btn btn-outline">🎁 Send a Gift</a>
             </div>
         </div>
     </section>
 
-    <!-- COUNTDOWN -->
+    <!-- ===== COUNTDOWN ===== -->
     <section class="fade-in" id="countdown">
         <div class="section-label">The Countdown</div>
         <h2 class="section-title">Counting Down to the Big Day</h2>
@@ -113,121 +184,48 @@
         </p>
     </section>
 
-    <!-- A LETTER FROM MY HEART — Robert's personal birthday message -->
-    <section class="heart-letter-section fade-in" id="letter">
-        <div class="heart-letter-glow" aria-hidden="true"></div>
-        <div class="heart-letter-candle" aria-hidden="true">🕯️</div>
-        <p class="kicker-script">A letter from my heart</p>
-        <h2 class="section-title display-title">24TH AUGUST — <span class="gold-text">MY BIRTHDAY</span> 🎂❤️</h2>
-
-        <div class="heart-letter">
-            <p class="heart-letter-open">
-                Today, I don't just celebrate another year of my life;
-                <em>I celebrate God's faithfulness.</em>
-            </p>
-
-            <p>
-                This year has been one of the hardest chapters of my life.
-                I lost my father in June, and there are moments when I still struggle
-                to believe he's really gone. Losing him has changed me
-                in ways words cannot fully explain.
-            </p>
-
-            <p class="heart-letter-faith">
-                But somehow, through the tears, the silence, the questions, and the pain,
-                <strong>God has kept me.</strong> 🙏🏾
-            </p>
-
-            <div class="heart-letter-gratitude">
-                <span>Today, I choose gratitude.</span>
-                <span>Grateful for life.</span>
-                <span>Grateful for my family.</span>
-                <span>Grateful for the people who have stood by me.</span>
-                <span>Grateful for every lesson this year has taught me.</span>
-                <span>And above all, grateful to God for giving me another year.</span>
+    <!-- ===== GIFT INVITATION ===== -->
+    <section class="fade-in gift-invite-section" id="gift-invite">
+        <div class="garland" aria-hidden="true">
+            <span class="garland-flower">🎁</span><span class="garland-bulb"></span><span class="garland-flower">💌</span><span class="garland-bulb"></span><span class="garland-flower">🎵</span>
+        </div>
+        <div class="section-label">Show Your Love</div>
+        <h2 class="section-title display-title">SEND A <span class="gold-text">GIFT</span> OR WISH</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">
+            Make Robert's birthday unforgettable. Send a birthday wish,
+            a mobile money gift, or a song request — and let him know you care.
+        </p>
+        <div class="gift-invite-grid">
+            <div class="gift-invite-card">
+                <div class="gift-invite-icon">🎁</div>
+                <h3>Send a Gift</h3>
+                <p>Support Robert via MTN MoMo, Vodafone Cash, or AirtelTigo Money.</p>
+                <a href="gift.html" class="btn btn-gold">Send Now</a>
             </div>
-
-            <p class="heart-letter-dad">
-                Dad, I wish you were here to see me celebrate this day. ❤️🕊️<br>
-                But I believe your love, your memories, and everything you taught me
-                will always be a part of who I am.
-            </p>
-
-            <p class="heart-letter-cheer">Happy birthday to me. 🎂🥂</p>
-
-            <p>
-                May this new chapter bring healing, wisdom, purpose, strength,
-                and greater blessings.
-            </p>
-
-            <p class="heart-letter-close">Thank You, Lord, for another year. 🙏🏾❤️</p>
-
-            <div class="heart-letter-divider" aria-hidden="true">✦ &nbsp;🕊️&nbsp; ✦</div>
-
-            <p class="heart-letter-open">
-                Today is my birthday… but my heart is carrying a lot. 🥺❤️
-            </p>
-
-            <p>
-                I woke up today with a smile, but also with memories.
-            </p>
-
-            <p>
-                This is my first birthday without my father. I lost him in June,
-                and sometimes it still doesn't feel real. There are moments I wish I could
-                hear his voice, see his smile, or simply have him here to say,
-                <em>"Happy birthday, son."</em> 🕊️
-            </p>
-
-            <p>
-                Losing him has reminded me just how fragile and precious life truly is.
-            </p>
-
-            <p>So today, I won't take this birthday for granted.</p>
-
-            <div class="heart-letter-gratitude">
-                <span>I am grateful for the breath in my lungs.</span>
-                <span>Grateful that God carried me through the darkest moments.</span>
-                <span>Grateful that despite everything I've lost, I am still here.</span>
+            <div class="gift-invite-card">
+                <div class="gift-invite-icon">💌</div>
+                <h3>Leave a Wish</h3>
+                <p>Drop a birthday wish on the public wall for everyone to see.</p>
+                <a href="wishes.html" class="btn btn-gold">Write a Wish</a>
             </div>
-
-            <p class="heart-letter-faith">
-                I may have lost people I love,
-                but <strong>I have not lost my faith.</strong> 🙏🏾
-            </p>
-
-            <p>
-                Lord, thank You for allowing me to see another 24th of August.
-                Thank You for keeping me when I didn't even have the strength to keep myself.
-            </p>
-
-            <p class="heart-letter-dad">
-                Dad, wherever you are, I hope you would be proud
-                of the person I'm becoming. ❤️🕊️
-            </p>
-
-            <p class="heart-letter-cheer">Happy birthday to me. 🎂❤️</p>
-
-            <p>
-                This new year of my life, I pray for peace, purpose, strength, success,
-                and a heart that never forgets where God brought me from.
-            </p>
-
-            <p class="heart-letter-final">
-                Another year. Another chapter.<br>
-                <span class="script-accent">Another reason to thank God.</span> 🙏🏾✨
-            </p>
+            <div class="gift-invite-card">
+                <div class="gift-invite-icon">🎶</div>
+                <h3>Request a Song</h3>
+                <p>Dedicate a song to Robert and hear it played at his celebration.</p>
+                <a href="music.html" class="btn btn-gold">Request Now</a>
+            </div>
         </div>
     </section>
 
-    <!-- CELEBRATION GALLERY (named after each photograph) -->
+    <!-- ===== PHOTO GALLERY ===== -->
     <section class="fade-in light-pool" id="gallery">
         <div class="garland" aria-hidden="true">
             <span class="garland-flower">🌸</span><span class="garland-bulb"></span><span class="garland-flower">🌺</span><span class="garland-bulb"></span><span class="garland-flower">🌷</span>
         </div>
         <p class="kicker-script">Moments worth framing</p>
         <h2 class="section-title display-title">THE <span class="gold-text">GALLERY</span></h2>
-        <p style="max-width:640px;margin:0 auto 36px;color:var(--muted);">
+        <p class="section-subtitle">
             Real photographs from Robert's life. Click any frame to view it full size.
         </p>
         <div class="gallery-grid">
@@ -255,10 +253,21 @@
                 <img src="sam.jpeg" alt="Sam — Family Friend" loading="lazy" onclick="openFlyer(this.src)">
                 <figcaption><span class="script-accent">Sam — Family Friend</span></figcaption>
             </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="EMMANUEL MY FRIEND.jpeg" alt="Emmanuel — My Friend" loading="lazy" onclick="openFlyer(this.src)">
+                <figcaption><span class="script-accent">Emmanuel</span></figcaption>
+            </figure>
+            <figure class="gold-frame gallery-item">
+                <img src="PASTOR STEPHEN NSIAH BOATENG, MY SENIOR BROTHER.jpeg" alt="Pastor Stephen Nsiah Boateng — My Senior Brother" loading="lazy" onclick="openFlyer(this.src)">
+                <figcaption><span class="script-accent">Pastor Stephen</span></figcaption>
+            </figure>
+        </div>
+        <div class="gallery-cta">
+            <a href="memories.html" class="btn btn-gold">📸 View Full Memories</a>
         </div>
     </section>
 
-    <!-- MARQUEE STRIP -->
+    <!-- ===== MARQUEE STRIP ===== -->
     <div class="marquee-strip" aria-hidden="true">
         <div class="marquee-track">
             <span>HAPPY BIRTHDAY ✦ ROBERT MENSAH ✦ 24 AUGUST 2026 ✦ HAPPY BIRTHDAY ✦ ROBERT MENSAH ✦ 24 AUGUST 2026 ✦&nbsp;</span>
@@ -266,37 +275,71 @@
         </div>
     </div>
 
-    <!-- QUICK LINKS -->
+    <!-- ===== QUICK LINKS ===== -->
     <section class="fade-in">
         <div class="section-label">Explore</div>
         <h2 class="section-title">Where Would You Like to Go?</h2>
         <div class="section-divider"></div>
-        <div class="cards-grid" style="max-width:900px;">
-            <a href="memories.html" class="info-card" style="text-decoration:none;">
+        <div class="cards-grid homepage-cards">
+            <a href="memories.html" class="info-card">
                 <span class="card-icon">📸</span>
                 <h3>Memories</h3>
                 <p>Photos of family and friends through the years.</p>
                 <span class="card-tag">View Gallery →</span>
             </a>
-            <a href="wishes.html" class="info-card" style="text-decoration:none;">
+            <a href="story.html" class="info-card">
+                <span class="card-icon">📖</span>
+                <h3>Stories</h3>
+                <p>The chapters of Robert's journey in pictures and words.</p>
+                <span class="card-tag">Read Story →</span>
+            </a>
+            <a href="wishes.html" class="info-card">
                 <span class="card-icon">💌</span>
                 <h3>Wishes</h3>
                 <p>Leave a birthday wish on the public wall.</p>
                 <span class="card-tag">Write a Wish →</span>
             </a>
-            <a href="gift.html" class="info-card" style="text-decoration:none;">
+            <a href="gift.html" class="info-card">
                 <span class="card-icon">🎁</span>
                 <h3>Send a Gift</h3>
                 <p>Mobile Money, WhatsApp message or a song request.</p>
                 <span class="card-tag">Send Now →</span>
             </a>
-            <a href="celebrate.html" class="info-card" style="text-decoration:none;">
+            <a href="music.html" class="info-card">
+                <span class="card-icon">🎵</span>
+                <h3>Music</h3>
+                <p>Listen to the birthday playlist and request songs.</p>
+                <span class="card-tag">Open Music →</span>
+            </a>
+            <a href="celebrate.html" class="info-card">
                 <span class="card-icon">🎉</span>
                 <h3>Celebrate</h3>
                 <p>Games, fireworks and the big celebration page.</p>
                 <span class="card-tag">Join In →</span>
             </a>
+            <a href="chat.html" class="info-card">
+                <span class="card-icon">💬</span>
+                <h3>Live Chat</h3>
+                <p>Chat with other guests celebrating Robert's birthday.</p>
+                <span class="card-tag">Join Chat →</span>
+            </a>
         </div>
+    </section>
+
+    <!-- ===== BIRTHDAY BANNER ===== -->
+    <div class="birthday-banner" id="birthdayBanner">
+        <h3>🎉 It's Robert's Birthday Today! 🎉</h3>
+        <p>Celebrate with wishes, music, games, and fireworks!</p>
+    </div>
+
+    <!-- ===== FINAL MESSAGE ===== -->
+    <section class="fade-in text-center">
+        <p class="final-message">
+            Happy Birthday, <span class="gold">Robert Mensah</span>. ❤️
+        </p>
+        <button class="btn btn-gold" onclick="finalCelebration()">
+            🎆 Light Up the Sky
+        </button>
     </section>
 </main>
 
