@@ -2941,7 +2941,168 @@ section:not(.page-hero):not(.hero-cinematic) {
 #wishFormLive .form-textarea { min-height: 90px; resize: vertical; }
 #wishSubmitLive { width: 100%; min-height: 50px; font-size: 1rem; }
 
+/* ===== FAMILY GRID EXTENSIONS ===== */
+/* --- Family Members --- */
+.fam-card.fam-mother {
+    border: 1px solid rgba(201, 141, 152, 0.4);
+}
+.fam-card.fam-mother:hover {
+    box-shadow: 0 35px 70px rgba(0,0,0,0.7), 0 0 0 2px rgba(201,141,152,0.3), 0 0 20px rgba(201,141,152,0.2);
+}
+.fam-card.fam-mother .label-name { color: var(--rose); }
+
+.fam-card.fam-mother-lovely {
+    border: 1px solid rgba(201, 141, 152, 0.5);
+}
+.fam-card.fam-mother-lovely:hover {
+    box-shadow: 0 35px 70px rgba(0,0,0,0.7), 0 0 0 2px rgba(201,141,152,0.4), 0 0 20px rgba(201,141,152,0.25);
+}
+.fam-card.fam-mother-lovely .label-name { color: var(--blush); }
+
+.fam-card.fam-sister {
+    border: 1px solid rgba(232, 180, 184, 0.4);
+}
+.fam-card.fam-sister:hover {
+    box-shadow: 0 35px 70px rgba(0,0,0,0.7), 0 0 0 2px rgba(232,180,184,0.3), 0 0 20px rgba(232,180,184,0.2);
+}
+.fam-card.fam-sister .label-name { color: var(--blush); }
+
+.fam-card.fam-main.featured {
+    border: 2px solid var(--gold);
+    box-shadow: 0 30px 70px rgba(212,175,55,0.25), 0 0 40px rgba(212,175,55,0.15);
+}
+.fam-card.fam-main.featured:hover {
+    box-shadow: 0 40px 80px rgba(212,175,55,0.35), 0 0 50px rgba(212,175,55,0.25);
+}
+.fam-card.fam-main .label-name { color: var(--gold-light); }
+.fam-card.fam-main .label-role { color: var(--gold); font-weight: 600; }
+
+.fam-card.fam-self {
+    border: 1px solid var(--gold);
+}
+.fam-card.fam-self:hover {
+    box-shadow: 0 35px 70px rgba(212,175,55,0.4), 0 0 0 2px var(--gold), 0 0 30px rgba(212,175,55,0.3);
+}
+.fam-card.fam-self .label-name { color: var(--gold); font-weight: 700; }
+.fam-card.fam-self .label-role { color: var(--gold-light); }
+
+.fam-card.fam-junior-sister {
+    border: 1px solid rgba(232, 180, 184, 0.35);
+}
+.fam-card.fam-junior-sister:hover {
+    box-shadow: 0 35px 70px rgba(0,0,0,0.7), 0 0 0 2px rgba(232,180,184,0.3), 0 0 20px rgba(232,180,184,0.15);
+}
+.fam-card.fam-junior-sister .label-name { color: var(--blush); }
+
+.fam-card.fam-sam {
+    border: 1px solid rgba(117, 143, 132, 0.4);
+}
+.fam-card.fam-sam:hover {
+    box-shadow: 0 35px 70px rgba(0,0,0,0.7), 0 0 0 2px rgba(117,143,132,0.3), 0 0 20px rgba(117,143,132,0.2);
+}
+.fam-card.fam-sam .label-name { color: var(--sage); }
+
+.fam-card.fam-at-home {
+    border: 1px solid rgba(255, 190, 90, 0.4);
+}
+.fam-card.fam-at-home:hover {
+    box-shadow: 0 35px 70px rgba(0,0,0,0.7), 0 0 0 2px rgba(255,190,90,0.3), 0 0 20px rgba(255,190,90,0.2);
+}
+.fam-card.fam-at-home .label-name { color: #ffbe5a; }
+
+/* --- Friends --- */
+.fam-card.fam-emmanuel {
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+.fam-card.fam-emmanuel:hover {
+    box-shadow: 0 35px 70px rgba(0,0,0,0.7), 0 0 0 2px var(--gold-dim), 0 0 20px rgba(212,175,55,0.2);
+}
+.fam-card.fam-emmanuel .label-name { color: var(--gold-light); }
+
+.fam-card.fam-cosby {
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+.fam-card.fam-cosby:hover {
+    box-shadow: 0 35px 70px rgba(0,0,0,0.7), 0 0 0 2px var(--gold-dim), 0 0 20px rgba(212,175,55,0.2);
+}
+.fam-card.fam-cosby .label-name { color: var(--gold-light); }
+
+.fam-card.fam-labister {
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+.fam-card.fam-labister:hover {
+    box-shadow: 0 35px 70px rgba(0,0,0,0.7), 0 0 0 2px var(--gold-dim), 0 0 20px rgba(212,175,55,0.2);
+}
+.fam-card.fam-labister .label-name { color: var(--gold-light); }
+
+.fam-card.fam-bright {
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+.fam-card.fam-bright:hover {
+    box-shadow: 0 35px 70px rgba(0,0,0,0.7), 0 0 0 2px var(--gold-dim), 0 0 20px rgba(212,175,55,0.2);
+}
+.fam-card.fam-bright .label-name { color: var(--gold-light); }
+
+.fam-card.fam-daniel {
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+.fam-card.fam-daniel:hover {
+    box-shadow: 0 35px 70px rgba(0,0,0,0.7), 0 0 0 2px var(--gold-dim), 0 0 20px rgba(212,175,55,0.2);
+}
+.fam-card.fam-daniel .label-name { color: var(--gold-light); }
+
+.fam-card.fam-ebenezer {
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+.fam-card.fam-ebenezer:hover {
+    box-shadow: 0 35px 70px rgba(0,0,0,0.7), 0 0 0 2px var(--gold-dim), 0 0 20px rgba(212,175,55,0.2);
+}
+.fam-card.fam-ebenezer .label-name { color: var(--gold-light); }
+
+.fam-card.fam-abulai {
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+.fam-card.fam-abulai:hover {
+    box-shadow: 0 35px 70px rgba(0,0,0,0.7), 0 0 0 2px var(--gold-dim), 0 0 20px rgba(212,175,55,0.2);
+}
+.fam-card.fam-abulai .label-name { color: var(--gold-light); }
+
+.fam-card.fam-mastoe {
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+.fam-card.fam-mastoe:hover {
+    box-shadow: 0 35px 70px rgba(0,0,0,0.7), 0 0 0 2px var(--gold-dim), 0 0 20px rgba(212,175,55,0.2);
+}
+.fam-card.fam-mastoe .label-name { color: var(--gold-light); }
+
+/* --- Pastor --- */
+.fam-card.fam-pastor.featured {
+    border: 2px solid var(--gold);
+    box-shadow: 0 30px 70px rgba(212,175,55,0.25), 0 0 40px rgba(212,175,55,0.15);
+}
+.fam-card.fam-pastor.featured:hover {
+    box-shadow: 0 40px 80px rgba(212,175,55,0.35), 0 0 50px rgba(212,175,55,0.25);
+}
+.fam-card.fam-pastor .label-name { color: var(--gold-light); }
+.fam-card.fam-pastor .label-role { color: var(--gold); font-weight: 600; }
+
+.fam-memorial-text {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--muted);
+    padding: 20px 16px;
+    margin-top: 10px;
+    background: rgba(212, 175, 55, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 12px;
+}
+
 @media (max-width: 768px) {
     .chat-form-row { grid-template-columns: 1fr; }
     .chat-messages { max-height: 400px; }
 }
+
+

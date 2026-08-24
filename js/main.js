@@ -433,7 +433,10 @@ const photoArray = [
     { src: 'daniel my friend.jpeg', caption: '\u2728 Daniel — My Friend' },
     { src: 'ebenezer my friend.jpeg', caption: '\u2728 Ebenezer — My Friend' },
     { src: 'LABISTER my friend.jpeg', caption: '\u2728 Labister — My Friend' },
-    { src: 'mastoe my friend.jpeg', caption: '\u2728 Mastu — My Friend' }
+    { src: 'mastoe my friend.jpeg', caption: '\u2728 Mastu — My Friend' },
+    { src: 'EMMANUEL MY FRIEND.jpeg', caption: '\u2728 Emmanuel — My Friend' },
+    { src: 'COSBY MY FRIEND.jpeg', caption: '\u2728 Cosby — My Friend' },
+    { src: 'PASTOR STEPHEN NSIAH BOATENG, MY SENIOR BROTHER.jpeg', caption: '\u2728 Pastor Stephen Nsiah Boateng — My Senior Brother & Pastor 🎂' }
 ];
 let currentPhoto = 0;
 
