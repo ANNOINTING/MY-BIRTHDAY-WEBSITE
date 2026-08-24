@@ -3320,6 +3320,296 @@ section:not(.page-hero):not(.hero-cinematic) {
     transform: translateY(-2px);
 }
 
+/* ============================================================
+   PROPHET STEPHEN NSIAH BOATENG — Birthday Acknowledgement
+   Dedicated, reverent, celebratory styling ("Prophet" naming)
+   ============================================================ */
+.fam-card.fam-prophet.featured {
+    border: 2px solid var(--gold);
+    box-shadow: 0 30px 70px rgba(212,175,55,0.25), 0 0 40px rgba(212,175,55,0.15);
+}
+.fam-card.fam-prophet.featured:hover {
+    box-shadow: 0 40px 80px rgba(212,175,55,0.35), 0 0 50px rgba(212,175,55,0.25);
+}
+.fam-card.fam-prophet .label-name { color: var(--gold-light); }
+.fam-card.fam-prophet .label-role { color: var(--gold); font-weight: 600; }
+
+.prophet-birthday-section {
+    position: relative;
+    padding: 90px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.prophet-birthday-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(720px, 92vw);
+    height: 340px;
+    background: radial-gradient(ellipse at center, rgba(212, 175, 106, 0.14), transparent 65%);
+    filter: blur(12px);
+    pointer-events: none;
+    z-index: -1;
+}
+.prophet-birthday-card {
+    display: grid;
+    grid-template-columns: minmax(280px, 380px) 1fr;
+    gap: clamp(24px, 4vw, 48px);
+    align-items: start;
+    margin-top: 40px;
+    padding: clamp(24px, 4vw, 44px);
+    border-radius: var(--radius-lg);
+    background:
+        radial-gradient(circle at 12% 0%, rgba(212, 175, 106, 0.12), transparent 40%),
+        linear-gradient(165deg, rgba(38, 11, 18, 0.94), rgba(10, 14, 31, 0.92));
+    border: 1px solid rgba(212, 175, 106, 0.35);
+    box-shadow: var(--shadow-xl), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(14px);
+}
+.prophet-birthday-image {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid var(--gold-dim);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(212, 175, 106, 0.18);
+    transition: var(--transition);
+}
+.prophet-birthday-image:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 60px rgba(212, 175, 106, 0.32);
+}
+.prophet-birthday-image img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.92) saturate(1.05);
+    transition: filter 0.5s ease, transform 0.7s ease;
+}
+.prophet-birthday-image:hover img {
+    filter: brightness(1.02) saturate(1.1);
+    transform: scale(1.05);
+}
+.prophet-birthday-crown {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    filter: drop-shadow(0 4px 14px rgba(212, 175, 106, 0.6));
+    animation: prophetCrownFloat 3s ease-in-out infinite;
+    pointer-events: none;
+}
+@keyframes prophetCrownFloat {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-7px); }
+}
+.prophet-birthday-badge {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: linear-gradient(145deg, var(--wine-deep), var(--burgundy));
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 106, 0.25);
+    animation: prophetBadgePulse 2.5s ease-in-out infinite;
+}
+@keyframes prophetBadgePulse {
+    0%, 100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 106, 0.25); }
+    50% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 40px rgba(212, 175, 106, 0.5); }
+}
+.prophet-birthday-content {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.prophet-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.prophet-title-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
+    border-radius: 50%;
+    background: linear-gradient(145deg, var(--wine-deep), var(--burgundy));
+    border: 1px solid var(--gold-dim);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 175, 106, 0.15);
+    flex-shrink: 0;
+}
+.prophet-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 0.5px;
+    text-shadow: var(--text-glow-gold);
+}
+.prophet-role {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--muted);
+    line-height: 1.6;
+}
+.prophet-birthday-message {
+    padding: 22px 26px;
+    border-radius: var(--radius);
+    background: linear-gradient(160deg, rgba(212, 175, 106, 0.1), rgba(107, 18, 38, 0.18));
+    border: 1px solid rgba(212, 175, 106, 0.25);
+    border-left: 3px solid var(--gold);
+}
+.prophet-quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: var(--white);
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+.prophet-citation {
+    font-size: 0.85rem;
+    color: var(--gold-light);
+    letter-spacing: 1px;
+    text-align: right;
+}
+.prophet-personal-message {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.prophet-personal-message p {
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.85;
+}
+.prophet-personal-message p:first-child {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--gold-light);
+}
+.prophet-blessings {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 18px 22px;
+    border-radius: var(--radius-sm);
+    background: rgba(9, 7, 10, 0.4);
+    border: 1px solid rgba(212, 175, 106, 0.15);
+}
+.prophet-blessings li {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding-left: 4px;
+}
+.prophet-birthday-highlight {
+    padding: 18px 24px;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(145deg, rgba(212, 175, 106, 0.16), rgba(107, 18, 38, 0.28));
+    border: 1px solid var(--gold);
+    color: var(--white);
+    font-size: 1.02rem;
+    line-height: 1.75;
+    text-align: center;
+    box-shadow: 0 0 34px rgba(212, 175, 106, 0.18);
+}
+.prophet-birthday-highlight strong {
+    color: var(--gold-light);
+    text-shadow: var(--text-glow-gold);
+}
+.prophet-closing {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--white) !important;
+    font-size: 1.05rem !important;
+    line-height: 1.8 !important;
+}
+.prophet-signature {
+    font-family: var(--font-script);
+    font-size: 1.6rem !important;
+    color: var(--blush) !important;
+    line-height: 1.4 !important;
+    text-align: right;
+}
+.prophet-signature strong {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: var(--gold-light);
+    letter-spacing: 1px;
+}
+.prophet-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 8px;
+}
+
+/* Homepage gallery — Prophet Stephen featured frame */
+.gallery-item.gallery-prophet {
+    grid-column: span 2;
+    border: 2px solid var(--gold);
+    box-shadow: 0 30px 70px rgba(212, 175, 55, 0.28), 0 0 45px rgba(212, 175, 55, 0.18);
+    position: relative;
+}
+.gallery-item.gallery-prophet img {
+    filter: brightness(0.95) saturate(1.08);
+}
+.prophet-gallery-badge {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 7px 16px;
+    border-radius: 30px;
+    background: linear-gradient(145deg, var(--wine-deep), var(--burgundy));
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    z-index: 2;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 18px rgba(212, 175, 106, 0.3);
+    animation: prophetBadgePulse 2.5s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    .prophet-birthday-card {
+        grid-template-columns: 1fr;
+        padding: 22px;
+    }
+    .prophet-birthday-image img {
+        aspect-ratio: 4 / 3;
+    }
+    .prophet-actions {
+        flex-direction: column;
+    }
+    .prophet-actions .btn,
+    .prophet-actions .btn-outline {
+        width: 100%;
+        text-align: center;
+    }
+    .gallery-item.gallery-prophet {
+        grid-column: span 1;
+    }
+}
+
 @media (max-width: 768px) {
     .pastor-birthday-card {
         grid-template-columns: 1fr;
@@ -3552,6 +3842,374 @@ section:not(.page-hero):not(.hero-cinematic) {
     .gift-invite-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* ============================================================
+   MISSING COMPONENT STYLES — completeness & polish pass
+   ============================================================ */
+
+/* ----- Accessible skip link ----- */
+.skip-link {
+    position: absolute;
+    top: -60px;
+    left: 16px;
+    z-index: 5000;
+    padding: 12px 22px;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    background: linear-gradient(135deg, var(--gold), #b8962e);
+    color: var(--midnight);
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: top 0.3s ease;
+}
+.skip-link:focus {
+    top: 0;
+}
+
+/* ----- Cinematic photo chapters (story page) ----- */
+.photo-chapter {
+    position: relative;
+    min-height: 72vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    isolation: isolate;
+}
+.photo-chapter-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+}
+.photo-chapter-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: brightness(0.38) saturate(1.1);
+    transform: scale(1.06);
+    transition: transform 1.4s ease, filter 0.8s ease;
+}
+.photo-chapter:hover .photo-chapter-bg img {
+    transform: scale(1);
+    filter: brightness(0.46) saturate(1.15);
+}
+.photo-chapter::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(180deg, rgba(9,7,10,0.82) 0%, rgba(74,13,28,0.42) 50%, rgba(9,7,10,0.9) 100%);
+}
+.photo-chapter-content {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    padding: clamp(48px, 10vw, 110px) 22px;
+}
+.chapter-label {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 14px;
+    text-shadow: var(--text-glow-gold);
+}
+.chapter-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    letter-spacing: clamp(2px, 1vw, 6px);
+    color: var(--white);
+    margin-bottom: 18px;
+    text-shadow: 0 6px 40px rgba(0,0,0,0.65), var(--text-glow-gold);
+}
+.chapter-text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1rem, 2.4vw, 1.25rem);
+    line-height: 1.85;
+    color: var(--muted);
+    background: rgba(9, 7, 10, 0.45);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 20px 28px;
+    backdrop-filter: blur(8px);
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ----- Milestone timeline ----- */
+.timeline {
+    position: relative;
+    max-width: 680px;
+    margin: 40px auto 0;
+    padding-left: 34px;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: linear-gradient(180deg, transparent, var(--gold-dim) 12%, var(--gold-dim) 88%, transparent);
+}
+.timeline-item {
+    position: relative;
+    padding: 0 0 36px 18px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -31px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 26%, var(--gold-light), var(--gold));
+    box-shadow: 0 0 0 4px rgba(212, 175, 106, 0.15), 0 0 16px rgba(212, 175, 106, 0.45);
+}
+.timeline-year {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 6px;
+}
+.timeline-title {
+    font-family: var(--serif);
+    font-size: clamp(1.2rem, 3vw, 1.55rem);
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+.timeline-desc {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.75;
+    max-width: 520px;
+}
+
+/* ----- Balloon pop game ----- */
+.game-stats {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+.game-stat {
+    min-width: 96px;
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    background: rgba(9, 7, 10, 0.5);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+.game-stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: var(--gold-light);
+    text-shadow: var(--text-glow-gold);
+    font-variant-numeric: tabular-nums;
+}
+.game-stat-label {
+    font-size: 0.62rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted-dark);
+}
+.game-area {
+    position: relative;
+    height: 300px;
+    border-radius: var(--radius);
+    background:
+        radial-gradient(circle at 50% 100%, rgba(212, 175, 106, 0.08), transparent 60%),
+        rgba(9, 7, 10, 0.45);
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.game-balloon {
+    position: absolute;
+    bottom: -70px;
+    width: 58px;
+    height: 74px;
+    border-radius: 50% 50% 50% 50% / 44% 44% 56% 56%;
+    border: none;
+    cursor: pointer;
+    font-size: 0;
+    box-shadow: inset -6px -8px 18px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.35);
+    animation: gameBalloonRise linear forwards;
+    transition: transform 0.15s ease;
+}
+.game-balloon::after {
+    content: '🎈';
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 1.5rem;
+    pointer-events: none;
+}
+.game-balloon:hover { transform: scale(1.12); }
+@keyframes gameBalloonRise {
+    to { transform: translateY(-420px); }
+}
+.game-result {
+    min-height: 28px;
+    margin-top: 14px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--gold-light);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.game-result.show { opacity: 1; }
+
+/* ----- QR box (celebrate page gift panel) ----- */
+.qr-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: var(--radius-sm);
+    background: rgba(248, 240, 227, 0.96);
+    border: 1px solid var(--gold-dim);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+.qr-box img {
+    width: 160px;
+    height: 160px;
+    display: block;
+    border-radius: 8px;
+}
+.qr-box span {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #3a0b16;
+    text-align: center;
+}
+
+/* ----- Confession deliver option ----- */
+.deliver-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    text-align: left;
+}
+.deliver-option input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--gold);
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.deliver-option label {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    cursor: pointer;
+}
+
+/* ----- Party poppers & emoji bursts ----- */
+.party-popper {
+    position: fixed;
+    bottom: 0;
+    z-index: 2500;
+    pointer-events: none;
+}
+.party-popper-left { left: 0; }
+.party-popper-right { right: 0; }
+.popper-piece {
+    position: absolute;
+    bottom: 40px;
+    width: 8px;
+    height: 12px;
+    border-radius: 2px;
+    transform-origin: center bottom;
+    animation: popperBurst 2.2s ease-out forwards;
+}
+@keyframes popperBurst {
+    0% { transform: rotate(var(--angle)) translateX(0); opacity: 1; }
+    55% { transform: rotate(var(--angle)) translateX(var(--distance)); opacity: 1; }
+    100% { transform: rotate(var(--angle)) translateX(var(--distance)) translateY(var(--fall)); opacity: 0; }
+}
+.emoji-burst {
+    position: fixed;
+    z-index: 2600;
+    pointer-events: none;
+    animation: emojiPop 1.4s ease-out forwards;
+}
+@keyframes emojiPop {
+    0% { transform: translateY(0) scale(0.6); opacity: 0; }
+    15% { opacity: 1; }
+    100% { transform: translateY(-90px) scale(1.25) rotate(14deg); opacity: 0; }
+}
+
+/* ----- Memory stream controls row ----- */
+.stream-controls-fixed {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+/* ----- Memory stream control buttons ----- */
+.stream-control-btn {
+    background: rgba(10, 14, 39, 0.8);
+    border: 1px solid var(--glass-border);
+    color: var(--gold);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+.stream-control-btn:hover {
+    border-color: var(--gold);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(212, 175, 106, 0.25);
+}
+
+@media (max-width: 768px) {
+    .photo-chapter { min-height: 58vh; }
+    .chapter-text { padding: 16px 18px; }
+    .timeline { padding-left: 26px; }
+    .game-area { height: 240px; }
+    .qr-box img { width: 130px; height: 130px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .game-balloon { animation-duration: 6s !important; }
+    .popper-piece, .emoji-burst { animation-duration: 0.01s !important; }
 }
 
 

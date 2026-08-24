@@ -436,7 +436,7 @@ const photoArray = [
     { src: 'mastoe my friend.jpeg', caption: '\u2728 Mastu — My Friend' },
     { src: 'EMMANUEL MY FRIEND.jpeg', caption: '\u2728 Emmanuel — My Friend' },
     { src: 'COSBY MY FRIEND.jpeg', caption: '\u2728 Cosby — My Friend' },
-    { src: 'PASTOR STEPHEN NSIAH BOATENG, MY SENIOR BROTHER.jpeg', caption: '\u2728 Pastor Stephen Nsiah Boateng — My Senior Brother & Pastor 🎂' }
+    { src: 'PASTOR STEPHEN NSIAH BOATENG, MY SENIOR BROTHER.jpeg', caption: '\u2728 Prophet Stephen Nsiah Boateng — My Senior Brother & Prophet 🎂' }
 ];
 let currentPhoto = 0;
 
@@ -840,6 +840,84 @@ function sendSongRequest() {
     window.open('https://wa.me/' + CONFIG.whatsappNumber + '?text=' + encodeURIComponent(message), '_blank');
 }
 window.sendSongRequest = sendSongRequest;
+
+/* ---------- PROPHET STEPHEN WHATSAPP WISH ---------- */
+function sendProphetWhatsApp() {
+    const message = 'Happy Birthday, Prophet Stephen Nsiah Boateng! \u{1F382}\u26EA May God bless you with fresh prophetic anointing, divine direction, good health, long life, and greater open doors in this new year of your life. With deep love, honor, and gratitude \u2014 Robert Mensah \u{1F64F}\u{1F49B}';
+    window.open('https://wa.me/' + CONFIG.whatsappNumber + '?text=' + encodeURIComponent(message), '_blank');
+}
+window.sendProphetWhatsApp = sendProphetWhatsApp;
+
+/* ---------- BALLOON POP GAME ---------- */
+let balloonGameTimer = null;
+function startBalloonGame() {
+    const area = document.getElementById('gameArea');
+    const scoreEl = document.getElementById('balloonScore');
+    const timeEl = document.getElementById('balloonTime');
+    const resultEl = document.getElementById('balloonResult');
+    if (!area || !scoreEl || !timeEl) return;
+    clearInterval(balloonGameTimer);
+    area.innerHTML = '';
+    if (resultEl) resultEl.textContent = '';
+    let score = 0;
+    let timeLeft = 30;
+    scoreEl.textContent = '0';
+    timeEl.textContent = '30';
+
+    const colors = ['#d4af37', '#c98d98', '#758f84', '#e8b4b8', '#f1d27a'];
+    function spawnBalloon() {
+        if (timeLeft <= 0) return;
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'game-balloon';
+        b.style.left = (Math.random() * 86) + '%';
+        b.style.animationDuration = (2.2 + Math.random() * 1.4) + 's';
+        b.style.background =
+            'radial-gradient(circle at 32% 26%, rgba(255,255,255,0.45), transparent 42%),' +
+            colors[Math.floor(Math.random() * colors.length)];
+        b.setAttribute('aria-label', 'Pop this balloon');
+        b.addEventListener('click', () => {
+            score++;
+            scoreEl.textContent = score;
+            const r = b.getBoundingClientRect();
+            createEmojiBurst(r.left + r.width / 2, r.top + r.height / 2);
+            b.remove();
+        });
+        area.appendChild(b);
+        setTimeout(() => b.remove(), 3800);
+    }
+
+    spawnBalloon();
+    setTimeout(spawnBalloon, 400);
+    balloonGameTimer = setInterval(() => {
+        timeLeft--;
+        timeEl.textContent = timeLeft;
+        spawnBalloon();
+        if (timeLeft <= 0) {
+            clearInterval(balloonGameTimer);
+            area.innerHTML = '';
+            if (resultEl) {
+                resultEl.textContent = '\u{1F389} You popped ' + score + ' balloon' + (score === 1 ? '' : 's') + '! Happy Birthday, Robert!';
+                resultEl.classList.add('show');
+            }
+            createConfettiBurst(score >= 15 ? 50 : 25);
+        }
+    }, 1000);
+}
+window.startBalloonGame = startBalloonGame;
+
+/* ---------- FLOATING GIFT BUTTON ---------- */
+(function initGiftFloat() {
+    if (document.querySelector('.gift-float')) return;
+    const btn = document.createElement('button');
+    btn.className = 'gift-float';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Send Robert a birthday gift');
+    btn.title = 'Send a Gift \u{1F381}';
+    btn.innerHTML = '\u{1F381}';
+    btn.addEventListener('click', () => { window.location.href = 'gift.html'; });
+    document.body.appendChild(btn);
+})();
 
 /* ---------- ANONYMOUS CONFESSIONS ---------- */
 const CONFESSION_KEY = 'robert_birthday_confessions';
