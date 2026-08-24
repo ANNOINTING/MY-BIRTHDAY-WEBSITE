@@ -48,7 +48,7 @@
     --transition-slow: 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html { overflow-x: clip; scroll-behavior: smooth; }
 
 body {
@@ -4211,5 +4211,158 @@ section:not(.page-hero):not(.hero-cinematic) {
     .game-balloon { animation-duration: 6s !important; }
     .popper-piece, .emoji-burst { animation-duration: 0.01s !important; }
 }
+
+/* ============================================================
+   MOBILE APP EXPERIENCE — native-feel bottom tab bar
+   Thumb-reachable navigation, safe-area aware, PWA-ready
+   ============================================================ */
+.bottom-nav {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1200;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 6px 4px calc(6px + env(safe-area-inset-bottom));
+    background: rgba(9, 7, 10, 0.92);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-top: 1px solid rgba(212, 175, 106, 0.28);
+    box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.5);
+}
+.bottom-nav-link {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-height: 52px;
+    min-width: 44px;
+    text-decoration: none;
+    border-radius: 14px;
+    transition: transform 0.2s ease, background 0.25s ease;
+}
+.bottom-nav-link:active {
+    transform: scale(0.92);
+    background: rgba(212, 175, 106, 0.12);
+}
+.bn-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+    filter: grayscale(0.4) opacity(0.75);
+    transition: filter 0.25s ease, transform 0.25s ease;
+}
+.bn-label {
+    font-family: var(--sans);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--muted-dark);
+    transition: color 0.25s ease;
+}
+.bottom-nav-link.active .bn-icon {
+    filter: none;
+    transform: translateY(-2px) scale(1.12);
+}
+.bottom-nav-link.active .bn-label {
+    color: var(--gold-light);
+    text-shadow: 0 0 10px rgba(241, 210, 122, 0.45);
+}
+.bottom-nav-link.active {
+    position: relative;
+}
+.bottom-nav-link.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 26px;
+    height: 3px;
+    border-radius: 0 0 4px 4px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    box-shadow: 0 0 12px rgba(212, 175, 106, 0.6);
+}
+
+@media (max-width: 768px) {
+    .bottom-nav { display: flex; }
+
+    /* Keep content clear of the tab bar */
+    body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+    .footer { margin-bottom: calc(64px + env(safe-area-inset-bottom)); }
+
+    /* Floating buttons sit above the tab bar */
+    .gift-float { bottom: calc(96px + env(safe-area-inset-bottom)); }
+    .chat-float { bottom: calc(166px + env(safe-area-inset-bottom)); }
+    .music-btn { bottom: calc(84px + env(safe-area-inset-bottom)); }
+    .back-to-top { bottom: calc(84px + env(safe-area-inset-bottom)); }
+
+    /* Toasts float above the bar too */
+    .easter-toast { bottom: calc(90px + env(safe-area-inset-bottom)); }
+
+    /* Hide the old hamburger menu — the tab bar replaces it on phones */
+    .nav-toggle { display: none; }
+    .mobile-menu { display: none; }
+}
+
+/* Smooth entrance for the tab bar */
+@keyframes bottomNavRise {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.bottom-nav {
+    animation: bottomNavRise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ============================================================
+   SPEED LAYER — make phones fast
+   backdrop-filter blur is the #1 cause of scroll jank on
+   mid/low-end Android GPUs. On phones we drop every blur and
+   compensate with slightly more opaque surfaces, and we stop
+   all continuous background animations that burn GPU/battery.
+   ============================================================ */
+@media (max-width: 768px) {
+
+    /* --- 1. Kill ALL blur effects at once --- */
+    *, *::before, *::after {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    /* Compensate: solid-ish surfaces keep text readable without blur */
+    .navbar { background: rgba(9, 7, 10, 0.96); }
+    .panel, .wish-form,
+    .prophet-birthday-card, .pastor-birthday-card {
+        background-color: rgba(24, 9, 14, 0.97);
+    }
+    .welcome-letter, .heart-letter {
+        background-color: rgba(24, 9, 14, 0.97);
+    }
+    .countdown-box { background-color: rgba(24, 9, 14, 0.95); }
+    .hero-intro, .hero-content .hero-intro { background-color: rgba(20, 8, 12, 0.92); }
+    .chapter-text { background-color: rgba(9, 7, 10, 0.82); }
+    .chat-panel { background-color: rgba(24, 9, 14, 0.97); }
+    .wishes-live-wall { background-color: rgba(24, 9, 14, 0.97); }
+    .mem-stream-item { background-color: rgba(30, 12, 18, 0.9); }
+    .bottom-nav { background: rgba(9, 7, 10, 0.98); }
+    .memory-art-number { background: rgba(0, 0, 0, 0.75); }
+
+    /* --- 2. Stop continuous full-screen animations --- */
+    .hero-portrait { animation: none !important; transform: scale(1.04); }
+    .bg-stars, .bg-stars-gold { animation: none; }
+    .gift-float, .chat-float { animation: none !important; }
+    .marquee-track { animation-duration: 60s; }   /* half speed = half repaints */
+
+    /* --- 3. Cheaper hover-free shadows on cards --- */
+    .fam-card, .memory-art, .gallery-item, .info-card {
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* Desktop keeps its premium blur look — untouched above this line */
 
 

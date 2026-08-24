@@ -1,0 +1,31 @@
+{
+  "name": "Robert Mensah's Birthday Celebration",
+  "short_name": "RM Birthday",
+  "description": "Celebrate Robert Mensah's birthday — memories, wishes, music, gifts and live chat. 24 August.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#09070a",
+  "theme_color": "#0a0e27",
+  "categories": ["lifestyle", "events"],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "Leave a Wish", "url": "./wishes.html", "description": "Write a birthday wish" },
+    { "name": "Send a Gift", "url": "./gift.html", "description": "Mobile money or WhatsApp" },
+    { "name": "Live Chat", "url": "./chat.html", "description": "Chat with everyone" }
+  ]
+}

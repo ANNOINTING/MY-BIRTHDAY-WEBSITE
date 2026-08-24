@@ -619,6 +619,7 @@ function submitWish() {
     });
     saveWishes(wishes);
     ['wishName', 'wishCategory', 'wishMessage'].forEach(id => document.getElementById(id).value = '');
+    buzz([30, 40, 30]);
     const conf = document.getElementById('wishConfirmation');
     conf.classList.add('show');
     setTimeout(() => conf.classList.remove('show'), 3000);
@@ -636,6 +637,7 @@ function sendWhatsApp() {
 window.sendWhatsApp = sendWhatsApp;
 
 function copyPhoneNumber() {
+    buzz(20);
     navigator.clipboard.writeText(CONFIG.momoNumber).then(() => flashCopy()).catch(() => {
         const ta = document.createElement('textarea');
         ta.value = CONFIG.momoNumber;
@@ -878,6 +880,7 @@ function startBalloonGame() {
         b.setAttribute('aria-label', 'Pop this balloon');
         b.addEventListener('click', () => {
             score++;
+            buzz(15);
             scoreEl.textContent = score;
             const r = b.getBoundingClientRect();
             createEmojiBurst(r.left + r.width / 2, r.top + r.height / 2);
@@ -905,6 +908,59 @@ function startBalloonGame() {
     }, 1000);
 }
 window.startBalloonGame = startBalloonGame;
+
+/* ---------- HAPTIC FEEDBACK (phones) ---------- */
+function buzz(pattern) {
+    try { if (navigator.vibrate) navigator.vibrate(pattern); } catch (e) {}
+}
+window.buzz = buzz;
+
+/* ---------- MOBILE BOTTOM NAV BAR ---------- */
+(function initBottomNav() {
+    if (document.querySelector('.bottom-nav')) return;
+    const pages = [
+        { href: 'index.html',     icon: '🏠', label: 'Home' },
+        { href: 'story.html',     icon: '📖', label: 'Story' },
+        { href: 'memories.html',  icon: '📸', label: 'Memories' },
+        { href: 'wishes.html',    icon: '💌', label: 'Wishes' },
+        { href: 'gift.html',      icon: '🎁', label: 'Gift' },
+        { href: 'celebrate.html', icon: '🎉', label: 'Celebrate' }
+    ];
+    const path = location.pathname.split('/').pop() || 'index.html';
+    const nav = document.createElement('nav');
+    nav.className = 'bottom-nav';
+    nav.setAttribute('aria-label', 'Quick navigation');
+    nav.innerHTML = pages.map(p => {
+        const active = path === p.href ? ' active' : '';
+        return '<a href="' + p.href + '" class="bottom-nav-link' + active + '"' +
+               (active ? ' aria-current="page"' : '') + '>' +
+               '<span class="bn-icon">' + p.icon + '</span>' +
+               '<span class="bn-label">' + p.label + '</span></a>';
+    }).join('');
+    document.body.appendChild(nav);
+})();
+
+/* ---------- PWA: manifest, app metas & offline support ---------- */
+(function initPWA() {
+    const head = document.head;
+    const add = (tag, attrs) => {
+        const el = document.createElement(tag);
+        Object.keys(attrs).forEach(k => el.setAttribute(k, attrs[k]));
+        head.appendChild(el);
+    };
+    add('link', { rel: 'manifest', href: 'manifest.json' });
+    add('meta', { name: 'apple-mobile-web-app-capable', content: 'yes' });
+    add('meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' });
+    add('meta', { name: 'apple-mobile-web-app-title', content: 'RM Birthday' });
+    add('link', { rel: 'apple-touch-icon', href: 'icon.svg' });
+    /* Service worker — enables "Add to Home Screen" + offline access */
+    if ('serviceWorker' in navigator &&
+        (location.protocol === 'https:' || location.hostname === 'localhost')) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js').catch(() => {});
+        });
+    }
+})();
 
 /* ---------- FLOATING GIFT BUTTON ---------- */
 (function initGiftFloat() {
