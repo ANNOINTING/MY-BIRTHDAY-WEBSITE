@@ -75,9 +75,9 @@ body {
         radial-gradient(circle at 86% 78%, rgba(117,143,132,0.1), transparent 30%),
         linear-gradient(135deg, #09070a 0%, #3a0b16 52%, #2a102b 100%);
     opacity: 1;
-    animation: bgRotate 60s linear infinite;
+    /* Static gradient — animating a 200%×200% layer caused severe
+       slowdown on phones, so the rotation was removed for speed. */
 }
-@keyframes bgRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 .bg-stars {
     position: absolute; inset: 0;
     background-image:
@@ -109,14 +109,14 @@ body {
     width: 60%; height: 60%;
     background: radial-gradient(circle, rgba(26,42,94,0.4), transparent 60%);
     border-radius: 50%; filter: blur(40px);
-    animation: auroraFloat 14s ease-in-out infinite;
+    /* Static — animated blur layers were a major phone performance cost */
 }
 .bg-aurora-gold {
     position: absolute; bottom: -20%; right: -10%;
     width: 70%; height: 70%;
     background: radial-gradient(circle, rgba(212,175,55,0.08), transparent 60%);
     border-radius: 50%; filter: blur(50px);
-    animation: auroraFloatSecond 18s ease-in-out infinite;
+    /* Static — see note above */
 }
 @keyframes auroraFloat {
     0%,100% { transform: translate(0,0) scale(1); }
@@ -595,9 +595,9 @@ body {
     height: 66px;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 clamp(14px, 4vw, 48px);
-    background: rgba(9,7,10,0.78);
-    backdrop-filter: blur(18px) saturate(140%);
-    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    background: rgba(9,7,10,0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(212,175,106,0.22);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
@@ -1945,19 +1945,13 @@ img[loading] {
 body::after {
     content: '';
     position: fixed;
-    inset: -50%;
+    inset: 0;
     z-index: 5000;
     pointer-events: none;
-    opacity: 0.05;
+    opacity: 0.045;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    animation: grainShift 0.9s steps(4) infinite;
-}
-@keyframes grainShift {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(-2%, 3%); }
-    50% { transform: translate(3%, -2%); }
-    75% { transform: translate(-3%, -3%); }
-    100% { transform: translate(2%, 2%); }
+    /* Static grain — the animated version forced constant full-screen
+       repaints and was the single biggest slowdown on phones. */
 }
 
 /* ----- 2. Editorial hero typography ----- */
@@ -2503,9 +2497,9 @@ body::after {
 
 @media (max-width: 768px) {
 
-    /* --- Performance: lighten heavy effects --- */
-    body::after { opacity: 0.03; animation: none; }          /* static grain */
-    .bg-gradient { animation-duration: 120s; }
+    /* --- Perf: drop the most expensive effects --- */
+    body::after { display: none; }                            /* grain off on phones */
+    .fairy-lights-container { display: none; }                /* glowing bulbs off on phones */
     .petal { display: none; }                                 /* petals off on phones */
     .flower-decor { font-size: 1.3rem; opacity: 0.5; }
 
