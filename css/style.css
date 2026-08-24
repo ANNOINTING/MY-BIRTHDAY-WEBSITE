@@ -131,8 +131,10 @@ body {
     80% { transform: translate(-5%,5%) scale(1.1); }
 }
 
-/* ===== FESTIVE FAIRY LIGHTS ===== */
-.fairy-lights-container {
+/* NOTE: Christmas fairy lights removed for performance.
+   @keyframes fairyBulb below is kept — garland bulbs reuse it.
+   ===== REMOVED BLOCK STARTS HERE (kept for reference) =====
+.fairy-lights-container-x {
     position: fixed;
     top: 0;
     left: 0;
@@ -210,7 +212,14 @@ body {
     0%, 100% { opacity: 0.4; transform: scale(0.8); filter: brightness(0.6); }
     50% { opacity: 1; transform: scale(1.2); filter: brightness(1.2); }
 }
-@keyframes fairyTwinkle { 0% { opacity: 0.6; } 100% { opacity: 1; } }
+@keyframes fairyTwinkle-x { 0% { opacity: 0.6; } 100% { opacity: 1; } }
+===== REMOVED BLOCK ENDS HERE ===== */
+
+/* Garland divider bulbs still use this animation */
+@keyframes fairyBulb {
+    0%, 100% { opacity: 0.4; transform: scale(0.8); filter: brightness(0.6); }
+    50% { opacity: 1; transform: scale(1.2); filter: brightness(1.2); }
+}
 
 /* ===== FLOATING GIFT BUTTON ===== */
 .gift-float {
@@ -4364,5 +4373,127 @@ section:not(.page-hero):not(.hero-cinematic) {
 }
 
 /* Desktop keeps its premium blur look — untouched above this line */
+
+/* ============================================================
+   PROFESSIONAL UI REFINEMENT PASS
+   Research-driven polish applied across every page:
+   · Crisper type rendering (antialiasing)
+   · One unified elevation/shadow system
+   · Visible keyboard-focus states (accessibility)
+   · Anchor links never hide under the fixed navbar
+   · Tactile press feedback on all interactive elements
+   · Consistent input heights & section rhythm
+   ============================================================ */
+
+/* ----- 1. Crisper, more professional type rendering ----- */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+h1, h2, h3 { text-wrap: balance; }
+p, .timeline-desc, .chapter-text, .prophet-personal-message p { text-wrap: pretty; }
+
+/* ----- 2. Anchor links land below the fixed navbar ----- */
+html { scroll-padding-top: 84px; }
+section[id], div[id="birthdayBanner"] { scroll-margin-top: 84px; }
+
+/* ----- 3. Visible keyboard focus everywhere (professional a11y) ----- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+/* ----- 4. Unified elevation system (one shadow language) ----- */
+.panel, .wish-form, .info-card, .gift-invite-card,
+.chat-panel, .wishes-live-wall, .game-stat {
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 2px 6px rgba(0, 0, 0, 0.22),
+        0 14px 34px rgba(0, 0, 0, 0.38);
+}
+.wish-card {
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 2px 6px rgba(0, 0, 0, 0.2),
+        0 10px 26px rgba(0, 0, 0, 0.32);
+}
+
+/* ----- 5. Tactile press feedback on interactive elements ----- */
+.btn:active,
+.wish-submit:active,
+.whatsapp-btn:active,
+.copy-btn:active,
+.reaction-btn:active,
+.share-btn-round:active,
+.stream-control-btn:active {
+    transform: translateY(1px) scale(0.97);
+    transition-duration: 0.08s;
+}
+
+/* ----- 6. Consistent input heights & label rhythm ----- */
+.form-input, .form-select, .whatsapp-message-input,
+.chat-name-input, .chat-text-input {
+    min-height: 48px;
+}
+.section-label { margin-bottom: 12px; }
+.section-title { margin-bottom: 16px; }
+
+/* ----- 7. Refined navbar presence ----- */
+.navbar {
+    background: rgba(9, 7, 10, 0.88);
+}
+.nav-links a {
+    font-weight: 600;
+}
+.nav-links a.active {
+    background: linear-gradient(135deg, rgba(212, 175, 106, 0.18), rgba(212, 175, 106, 0.08));
+    color: var(--gold-light);
+}
+
+/* ----- 8. Quieter, more editorial footer ----- */
+.footer {
+    padding-top: 44px;
+    padding-bottom: 44px;
+}
+.footer p {
+    letter-spacing: 0.4px;
+    line-height: 1.9;
+}
+
+/* ----- 9. Photo frames: consistent corner language ----- */
+.fam-card, .memory-art, .gallery-item img, .flyer-card {
+    border-radius: var(--radius-sm);
+}
+
+/* ----- 10. Wish wall empty state: polished, not plain ----- */
+.wishes-wall > p,
+.confessionsWall > p,
+#confessionsWall > p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    border: 1px dashed var(--glass-border);
+    border-radius: var(--radius);
+    background: rgba(212, 175, 106, 0.04);
+}
+
+/* ----- 11. Hero CTA: stronger primary action hierarchy ----- */
+.hero-cta .btn-gold {
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.3),
+        0 10px 30px rgba(212, 175, 55, 0.35);
+}
+
+/* ----- 12. Countdown: tabular figures stop layout jitter ----- */
+.countdown-number {
+    font-variant-numeric: tabular-nums;
+}
 
 

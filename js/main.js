@@ -54,21 +54,6 @@ const CONFIG = {
     }
 })();
 
-/* ---------- FESTIVE FAIRY LIGHTS ---------- */
-(function initFairyLights() {
-    const container = document.createElement('div');
-    container.className = 'fairy-lights-container';
-    const string = document.createElement('div');
-    string.className = 'fairy-light-string';
-    container.appendChild(string);
-    for (let i = 0; i < 10; i++) {
-        const bulb = document.createElement('div');
-        bulb.className = 'fairy-light';
-        container.appendChild(bulb);
-    }
-    document.body.appendChild(container);
-})();
-
 /* ---------- FLOATING CHAT BUTTON ---------- */
 (function initChatFloat() {
     const btn = document.createElement('a');
@@ -726,46 +711,17 @@ if (finalToasts) {
     update();
 })();
 
-/* ---------- BIRTHDAY DAY DETECTION ---------- */
+/* ---------- BIRTHDAY DAY DETECTION ----------
+   On the big day we only show the quiet text banner.
+   No confetti, balloons, fireworks or splash screens —
+   celebrations now happen only when guests tap the
+   "Light Up the Sky" button themselves. */
 (function initBirthdayCheck() {
     const now = new Date();
     const isBirthday = now.getMonth() === 7 && now.getDate() === 24;
     const banner = document.getElementById('birthdayBanner');
     if (!isBirthday) return;
-
     if (banner) banner.classList.add('show');
-    setTimeout(() => createConfettiBurst(60), 1500);
-    setTimeout(() => createBalloons(8), 2800);
-    setTimeout(() => { if (typeof stadiumCelebration === 'function') stadiumCelebration(); }, 3500);
-
-    /* One-time "IT'S TODAY" splash — once per browser session */
-    let seen = false;
-    try { seen = sessionStorage.getItem('rm_bday_splash') === '1'; } catch (e) {}
-    if (seen) return;
-    try { sessionStorage.setItem('rm_bday_splash', '1'); } catch (e) {}
-
-    const ov = document.createElement('div');
-    ov.className = 'bday-splash';
-    ov.setAttribute('role', 'dialog');
-    ov.setAttribute('aria-label', 'Happy Birthday Robert');
-    ov.innerHTML =
-        '<div class="bday-splash-inner">' +
-        '<div class="bday-splash-cake" aria-hidden="true">🎂</div>' +
-        '<p class="kicker-script">It\u2019s finally here</p>' +
-        '<h2 class="display-title">HAPPY<br><span class="gold-text">BIRTHDAY</span><br>ROBERT</h2>' +
-        '<p class="bday-splash-sub">24th August \u2014 a day of gratitude, love and celebration.</p>' +
-        '<button class="btn btn-gold" id="bdaySplashBtn">\uD83C\uDF86 Start the Celebration</button>' +
-        '</div>';
-    document.body.appendChild(ov);
-    document.body.style.overflow = 'hidden';
-    requestAnimationFrame(() => ov.classList.add('open'));
-    document.getElementById('bdaySplashBtn').addEventListener('click', () => {
-        ov.classList.add('leaving');
-        document.body.style.overflow = '';
-        setTimeout(() => ov.remove(), 700);
-        if (typeof stadiumCelebration === 'function') stadiumCelebration();
-        try { if (window.openMusicPlayer) window.openMusicPlayer(); } catch (e) {}
-    });
 })();
 
 /* ---------- QUOTE ROTATOR ---------- */
@@ -1066,6 +1022,5 @@ window.shareCopy = shareCopy;
 /* ---------- INIT ---------- */
 renderWishes();
 renderConfessions();
-createBalloons(4);
 checkFadeIn();
 if (window.twemoji) twemoji.parse(document.body);
