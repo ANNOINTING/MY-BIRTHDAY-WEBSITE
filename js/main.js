@@ -351,7 +351,11 @@ function flipCountdown(id, value) {
 function updateCountdown() {
     const diff = CONFIG.birthday - new Date();
     if (diff <= 0) {
-        ['days', 'hours', 'minutes', 'seconds'].forEach(id => flipCountdown(id, '00'));
+        /* The big day has arrived — swap countdown for a live message */
+        const box = document.querySelector('.countdown-container');
+        const msg = document.getElementById('countdownLiveMsg');
+        if (box) box.style.display = 'none';
+        if (msg) msg.hidden = false;
         return;
     }
     flipCountdown('days', String(Math.floor(diff / 86400000)).padStart(2, '0'));
@@ -712,12 +716,41 @@ if (finalToasts) {
     const now = new Date();
     const isBirthday = now.getMonth() === 7 && now.getDate() === 24;
     const banner = document.getElementById('birthdayBanner');
-    if (isBirthday) {
-        if (banner) banner.classList.add('show');
-        setTimeout(() => createConfettiBurst(60), 1200);
-        setTimeout(() => createBalloons(8), 2500);
-        setTimeout(() => { if (typeof stadiumCelebration === 'function') stadiumCelebration(); }, 3000);
-    }
+    if (!isBirthday) return;
+
+    if (banner) banner.classList.add('show');
+    setTimeout(() => createConfettiBurst(60), 1500);
+    setTimeout(() => createBalloons(8), 2800);
+    setTimeout(() => { if (typeof stadiumCelebration === 'function') stadiumCelebration(); }, 3500);
+
+    /* One-time "IT'S TODAY" splash — once per browser session */
+    let seen = false;
+    try { seen = sessionStorage.getItem('rm_bday_splash') === '1'; } catch (e) {}
+    if (seen) return;
+    try { sessionStorage.setItem('rm_bday_splash', '1'); } catch (e) {}
+
+    const ov = document.createElement('div');
+    ov.className = 'bday-splash';
+    ov.setAttribute('role', 'dialog');
+    ov.setAttribute('aria-label', 'Happy Birthday Robert');
+    ov.innerHTML =
+        '<div class="bday-splash-inner">' +
+        '<div class="bday-splash-cake" aria-hidden="true">🎂</div>' +
+        '<p class="kicker-script">It\u2019s finally here</p>' +
+        '<h2 class="display-title">HAPPY<br><span class="gold-text">BIRTHDAY</span><br>ROBERT</h2>' +
+        '<p class="bday-splash-sub">24th August \u2014 a day of gratitude, love and celebration.</p>' +
+        '<button class="btn btn-gold" id="bdaySplashBtn">\uD83C\uDF86 Start the Celebration</button>' +
+        '</div>';
+    document.body.appendChild(ov);
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => ov.classList.add('open'));
+    document.getElementById('bdaySplashBtn').addEventListener('click', () => {
+        ov.classList.add('leaving');
+        document.body.style.overflow = '';
+        setTimeout(() => ov.remove(), 700);
+        if (typeof stadiumCelebration === 'function') stadiumCelebration();
+        try { if (window.openMusicPlayer) window.openMusicPlayer(); } catch (e) {}
+    });
 })();
 
 /* ---------- QUOTE ROTATOR ---------- */
